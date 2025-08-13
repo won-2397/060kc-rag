@@ -26,10 +26,20 @@ app.use(cors({
 app.options("*", cors());
 
 app.use(express.json());
+app.use((req,res,next)=>{ res.set("Cache-Control","no-store"); next(); });
+
+if (!process.env.OPENAI_API_KEY) {
+  console.error("❌ OPENAI_API_KEY가 설정되지 않았습니다. .env를 확인하세요.");
+  process.exit(1);
+}
 
 const client = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
 const EMBED_MODEL = process.env.EMBED_MODEL || "text-embedding-3-small";
-const PORT = process.env.PORT || 3000;
+const PORT = Number(process.env.PORT);
+if (!PORT) {
+  console.error("❌ PORT env missing. Render Web Service는 PORT로만 리슨해야 합니다.");
+  process.exit(1);
+}
 const THRESHOLD = Number(process.env.THRESHOLD || 0.78);
 
 // ✅ 헬스체크
@@ -92,7 +102,7 @@ async function embed(text) {
   return res.data[0].embedding;
 }
 
-function topK(qv, k = 5) { // 후보 수 확장
+function topK(qv, k = 15) { // 후보 수 확장
   const scored = index.map(item => ({
     q: item.q,
     a: item.a,
@@ -115,7 +125,7 @@ app.post("/ask", async (req, res) => {
     const normalized = await normalizeQuery(question);
     const qv = await embed(normalized);
 
-    const hits = topK(qv, 5);
+    const hits = topK(qv, 15);
     const best = hits[0];
     const bestScore = best?.score ?? 0;
 
@@ -161,6 +171,5 @@ app.post("/ask", async (req, res) => {
 
 // 내부망에서 접근해야 하면 아래로 교체하세요.
  app.listen(PORT, "0.0.0.0", () => {
-   console.log(`🚀 060KC RAG API on http://0.0.0.0:${PORT} (THRESHOLD=${THRESHOLD})`);
+  console.log(`🚀 RAG ONLINE on 0.0.0.0:${PORT} (TH=${THRESHOLD})`);
  });
-
