@@ -82,3 +82,28 @@ ${context}
     console.error("[/company-chat] error:", e?.message || e);
     return res.status(500).json({ reply: handoffTemplate(), needs_handoff: true });
   }
+});
+
+// (옵션) 범용 채팅
+app.post("/chat", async (req, res) => {
+  try {
+    const userMessage = req.body?.message || "";
+    const r = await openai.chat.completions.create({
+      model: process.env.CHAT_MODEL || "gpt-4o-mini",
+      temperature: 0.3,
+      messages: [
+        { role: "system", content: "You are a helpful assistant." },
+        { role: "user",   content: userMessage }
+      ]
+    });
+    res.json({ reply: r.choices?.[0]?.message?.content ?? "" });
+  } catch (e) {
+    console.error("[/chat] error:", e?.message || e);
+    res.status(500).json({ error: "GPT 서버 오류 발생" });
+  }
+});
+
+app.listen(PORT, "0.0.0.0", () => {
+  console.log(`✅ company-chat ONLINE on 0.0.0.0:${PORT}`);
+});
+EOF
