@@ -1,29 +1,33 @@
-// server.js — gpt-server-060kc (Render)용
+cd /home/webuser/060kc.com/public_html/060kc-rag
+cp server.js server.js.bak  # 백업
+
+cat > server.js <<'EOF'
 import express from "express";
 import cors from "cors";
 import "dotenv/config";
-import OpenAI from "openai"
+import OpenAI from "openai";
 
 console.log("🚀 060KC gpt-server boot :: with /company-chat route");
 
 const app = express();
 
-// PORT (Render 필수)
-const PORT = Number(process.env.PORT);
-if (!PORT) { console.error("❌ PORT env missing"); process.exit(1); }
+// RAG 서버는 PORT가 없을 수 있으므로 기본값 사용
+const PORT = Number(process.env.PORT) || 10000;
 
-// CORS
 app.use(cors({
   origin: [
     "https://www.060kc.com",
     "https://060kc.com",
     "http://localhost:8080",
-    "http://127.0.0.1:8080",
+    "http://127.0.0.1:8080"
   ],
   methods: ["POST","GET","OPTIONS"],
-  allowedHeaders: ["Content-Type","Authorization"],
+  allowedHeaders: ["Content-Type","Authorization"]
 }));
 app.use(express.json({ limit: "2mb" }));
+
+// OpenAI 클라이언트 (한 번만 생성)
+const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
 
 // 헬스체크
 app.get("/health", (_req, res) => res.json({ ok: true, ts: Date.now() }));
@@ -60,13 +64,12 @@ ${question}
 ${context}
 `.trim();
 
-    const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
     const r = await openai.chat.completions.create({
       model: process.env.CHAT_MODEL || "gpt-4o-mini",
       temperature: 0.2,
       messages: [
         { role: "system", content: systemPrompt },
-        { role: "user", content: userPrompt }
+        { role: "user",   content: userPrompt }
       ]
     });
 
@@ -79,28 +82,3 @@ ${context}
     console.error("[/company-chat] error:", e?.message || e);
     return res.status(500).json({ reply: handoffTemplate(), needs_handoff: true });
   }
-});
-
-// (옵션) 범용 채팅
-app.post("/chat", async (req, res) => {
-  try {
-    const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
-    const userMessage = req.body?.message || "";
-    const r = await openai.chat.completions.create({
-      model: process.env.CHAT_MODEL || "gpt-4o-mini",
-      temperature: 0.3,
-      messages: [
-        { role: "system", content: "You are a helpful assistant." },
-        { role: "user", content: userMessage }
-      ]
-    });
-    res.json({ reply: r.choices?.[0]?.message?.content ?? "" });
-  } catch (e) {
-    console.error("[/chat] error:", e?.message || e);
-    res.status(500).json({ error: "GPT 서버 오류 발생" });
-  }
-});
-
-app.listen(PORT, "0.0.0.0", () => {
-  console.log(`✅ company-chat ONLINE on 0.0.0.0:${PORT}`);
-});
