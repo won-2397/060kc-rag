@@ -1,4 +1,4 @@
-// server.js — 원래 CommonJS(require) 버전 (복구용)
+// server.js — gpt-server-060kc (Render / RAG 서버 공통)
 const express = require("express");
 const cors = require("cors");
 require("dotenv").config();
@@ -8,9 +8,10 @@ console.log("🚀 060KC gpt-server boot :: with /company-chat route");
 
 const app = express();
 
-// RAG 서버 기본 포트 지정
+// PORT (Render는 환경변수 PORT, RAG 서버는 기본 10000 사용)
 const PORT = Number(process.env.PORT) || 10000;
 
+// CORS
 app.use(cors({
   origin: [
     "https://www.060kc.com",
@@ -22,9 +23,6 @@ app.use(cors({
   allowedHeaders: ["Content-Type","Authorization"],
 }));
 app.use(express.json({ limit: "2mb" }));
-
-// OpenAI 클라이언트
-const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
 
 // 헬스체크
 app.get("/health", (_req, res) => res.json({ ok: true, ts: Date.now() }));
@@ -61,6 +59,7 @@ ${question}
 ${context}
 `.trim();
 
+    const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
     const r = await openai.chat.completions.create({
       model: process.env.CHAT_MODEL || "gpt-4o-mini",
       temperature: 0.2,
@@ -81,9 +80,10 @@ ${context}
   }
 });
 
-// 범용 채팅
+// (옵션) 범용 채팅
 app.post("/chat", async (req, res) => {
   try {
+    const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
     const userMessage = req.body?.message || "";
     const r = await openai.chat.completions.create({
       model: process.env.CHAT_MODEL || "gpt-4o-mini",
