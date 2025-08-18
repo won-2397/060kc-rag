@@ -1,17 +1,14 @@
-cd /home/webuser/060kc.com/public_html/060kc-rag
-cp server.js server.js.bak  # 백업
-
-cat > server.js <<'EOF'
-import express from "express";
-import cors from "cors";
-import "dotenv/config";
-import OpenAI from "openai";
+// server.js — 원래 CommonJS(require) 버전 (복구용)
+const express = require("express");
+const cors = require("cors");
+require("dotenv").config();
+const OpenAI = require("openai");
 
 console.log("🚀 060KC gpt-server boot :: with /company-chat route");
 
 const app = express();
 
-// RAG 서버는 PORT가 없을 수 있으므로 기본값 사용
+// RAG 서버 기본 포트 지정
 const PORT = Number(process.env.PORT) || 10000;
 
 app.use(cors({
@@ -19,14 +16,14 @@ app.use(cors({
     "https://www.060kc.com",
     "https://060kc.com",
     "http://localhost:8080",
-    "http://127.0.0.1:8080"
+    "http://127.0.0.1:8080",
   ],
   methods: ["POST","GET","OPTIONS"],
-  allowedHeaders: ["Content-Type","Authorization"]
+  allowedHeaders: ["Content-Type","Authorization"],
 }));
 app.use(express.json({ limit: "2mb" }));
 
-// OpenAI 클라이언트 (한 번만 생성)
+// OpenAI 클라이언트
 const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
 
 // 헬스체크
@@ -84,7 +81,7 @@ ${context}
   }
 });
 
-// (옵션) 범용 채팅
+// 범용 채팅
 app.post("/chat", async (req, res) => {
   try {
     const userMessage = req.body?.message || "";
@@ -106,4 +103,3 @@ app.post("/chat", async (req, res) => {
 app.listen(PORT, "0.0.0.0", () => {
   console.log(`✅ company-chat ONLINE on 0.0.0.0:${PORT}`);
 });
-EOF
