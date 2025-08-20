@@ -363,3 +363,21 @@
 {"messages":[{"role":"user","content":"2011년 제휴 실적은 어떻게 되나요?"},{"role":"assistant","content":"2011년 11월 '조은사주', 8월 '변호사 이영인 법률사무소', '변호사 김덕은 법률사무소', '(주) 유니믹스', 7월 '법무법인 한누리', 6월 법률사무소 '로엔젤'과 제휴를 체결했습니다."}]}
 {"messages":[{"role":"user","content":"2010년 제휴 실적은 어떻게 되나요?"},{"role":"assistant","content":"2010년 12월 법률사무소 '마이로펌', 'SK텔링크 주식회사'(현 SK브로드밴드)와 제휴를 체결했고, 같은 해 10월 별정통신사업자 등록을 완료했습니다."}]}
 {"messages":[{"role":"user","content":"2008년 어떤 일이 있었나요?"},{"role":"assistant","content":"2008년 2월 법인으로 설립되었습니다. 당시 상호는 '휴먼지식정보'였습니다."}]}
+{"messages":[{"role":"user","content":"회사명은 무엇입니까?"},{"role":"assistant","content":"060 케이씨 주식회사입니다."}]}
+{"messages":[{"role":"user","content":"자본금은 얼마입니까?"},{"role":"assistant","content":"자본금은 3억 원입니다."}]}
+{"messages":[{"role":"user","content":"보유 서버는 몇 대입니까?"},{"role":"assistant","content":"총 9대를 보유하고 있습니다."}]}
+{"messages":[{"role":"user","content":"보유 회선 수는 얼마입니까?"},{"role":"assistant","content":"총 840회선(28 E1)을 보유하고 있습니다."}]}
+{"messages":[{"role":"user","content":"별정통신 등록번호는 무엇입니까?"},{"role":"assistant","content":"제 111129 호입니다."}]}
+{"messages":[{"role":"user","content":"사업자 등록번호는 무엇입니까?"},{"role":"assistant","content":"128-86-29333 입니다."}]}
+{"messages":[{"role":"user","content":"업태와 종목은 무엇입니까?"},{"role":"assistant","content":"업태는 서비스, 종목은 온라인 정보제공업입니다."}]}
+{"messages":[{"role":"user","content":"대표이사는 누구입니까?"},{"role":"assistant","content":"대표이사는 김재홍입니다."}]}
+{"messages":[{"role":"user","content":"설립일은 언제입니까?"},{"role":"assistant","content":"2008년 2월 1일 설립되었습니다."}]}
+{"messages":[{"role":"user","content":"주소는 어디입니까?"},{"role":"assistant","content":"12925 경기도 하남시 미사대로 540, A동 10층 36호 (현대지식산업센터 한강미사2차)입니다."}]}
+{"messages":[{"role":"user","content":"전화번호와 팩스번호는 무엇입니까?"},{"role":"assistant","content":"전화번호는 070-8231-8295이고, 팩스번호는 02-6280-5588입니다."}]}
+{"messages":[{"role":"user","content":"전화 연결 해주세요"},{"role":"assistant","content":"바로 연결해 드릴게요. **[지금 전화 연결](tel:07082318295)**\n(문의 070-8231-8295, 평일 09:00–18:00)"}]}
+{"messages":[{"role":"user","content":"네. 연결해주세요"},{"role":"assistant","content":"네, 연결 버튼을 눌러주세요: **[바로 연결](tel:07082318295)**"}]}
+{"messages":[{"role":"user","content":"상담원 연결 가능한가요?"},{"role":"assistant","content":"가능합니다. **[지금 연결하기](tel:07082318295)**\n(대표번호 070-8231-8295, 평일 09:00–18:00)"}]}
+{"messages":[{"role":"user","content":"연락처 알려줘"},{"role":"assistant","content":"대표번호는 070-8231-8295입니다. **[바로 전화하기](tel:07082318295)**\n팩스는 02-6280-5588입니다."}]}
+{"messages":[{"role":"user","content":"상담 가능한 시간 알려줘"},{"role":"assistant","content":"상담 가능 시간은 평일 09:00–18:00입니다. 지금 연결하시려면 **[전화 연결](tel:07082318295)** 버튼을 눌러주세요."}]}
+{"messages":[{"role":"user","content":"팩스 번호가 뭐예요?"},{"role":"assistant","content":"팩스는 02-6280-5588입니다. (전화 연결은 **[여기](tel:07082318295)**)"}]}
+{"messages":[{"role":"user","content":"안녕하세요! 저희 060 케이씨 AI 상담원입니다. 정확한 안내를 위해 담당자 연결을 바로 도와드리겠습니다. 지금 연결해 드릴까요? [문의: 070-8231-8295, 평일 09:00–18:00]"},{"role":"assistant","content":"네, 그 문구 그대로 사용하시고 ‘지금 연결’ 부분만 클릭-투-콜로 바꿔주세요 → **[지금 연결하기](tel:07082318295)**"}]}
