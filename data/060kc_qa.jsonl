@@ -42,3 +42,23 @@
 {"messages":[{"role":"user","content":"세금계산서 발급이 가능한가요?"},{"role":"assistant","content":"네, 사업자 등록증을 제출하시면 발급해드립니다."}]}
 {"messages":[{"role":"user","content":"060 서비스란 무엇인가요?"},{"role":"assistant","content":"060 서비스는 유료 전화번호를 통해 정보 제공, 상담, 기부 등의 서비스를 제공하는 통신 서비스입니다."}]}
 {"messages":[{"role":"user","content":"060 케이씨는 어떤 회사인가요?"},{"role":"assistant","content":"060 케이씨(060KC)는 060 유료전화 서비스 분야에서 오랜 경험과 전문성을 갖춘 국내 대표 통신 서비스 기업입니다."}]}
+{"messages":[{"role":"user","content":"서비스 번호 개설 후 언제부터 상담이 가능한가요?"},{"role":"assistant","content":"매월 1일부터 서비스 제공이 가능합니다."}]}
+{"messages":[{"role":"user","content":"프로그램비 외에 계약을 위해 필요한 비용이 있나요?"},{"role":"assistant","content":"프로그램비만 납부하시면 계약이 성립되며, 이후 필요한 시스템은 당사에서 제공합니다."}]}
+{"messages":[{"role":"user","content":"서비스 번호는 060KC에서 신청해주나요?"},{"role":"assistant","content":"희망 번호가 없으면 당사가 지정해드릴 수 있고, 희망 번호가 있으면 사용 가능 여부를 확인해드립니다."}]}
+{"messages":[{"role":"user","content":"정보이용료는 자유롭게 설정 가능한가요?"},{"role":"assistant","content":"상담 분야에 따라 상한선이 있으며, 그 범위 내에서 자유롭게 설정 가능합니다."}]}
+{"messages":[{"role":"user","content":"매출에 대한 수수료가 있나요?"},{"role":"assistant","content":"수납대행수수료와 기간통신역무제공료가 발생합니다."}]}
+{"messages":[{"role":"user","content":"수납 대행 수수료란 무엇인가요?"},{"role":"assistant","content":"수납 대행 수수료는 통신사가 060 전화 서비스의 이용 요금 중 일부를 수납 및 정산 업무의 대가로 공제해 가는 수수료를 말하며, 매출 총액의 10%가 기준입니다."}]}
+{"messages":[{"role":"user","content":"기간통신역무제공료란 무엇인가요?"},{"role":"assistant","content":"기간통신역무제공료란 통신사가 수납 대행 수수료를 공제한 후 당사에 060 매출액을 정산해줄 때, 당사에서 별도로 공제하는 관리비를 말합니다."}]}
+{"messages":[{"role":"user","content":"서비스 번호 하나당 프로그램비가 따로 발생하나요?"},{"role":"assistant","content":"같은 사업자라면 서비스 번호는 여러 개 사용 가능하며, 프로그램비는 회선 기준으로 적용됩니다."}]}
+{"messages":[{"role":"user","content":"전화로 신청이 가능한가요?"},{"role":"assistant","content":"계약서는 원본이 필요해 등기우편으로 주고받아야 하며, 다른 서류는 스캔본이나 팩스로 제출 가능합니다."}]}
+{"messages":[{"role":"user","content":"상담 분야는 어떻게 정해야 하나요?"},{"role":"assistant","content":"신청 시 상담 분야를 알려주시면 됩니다."}]}
+{"messages":[{"role":"user","content":"성인 인증이 필요한 서비스도 제공 가능한가요?"},{"role":"assistant","content":"불가능합니다. 성인 인증 등 법적 요건이 필요하기 때문에, 당사는 해당 서비스를 제공하지 않습니다."}]}
+{"messages":[{"role":"user","content":"사주/타로 상담을 060으로 운영할 수 있나요?"},{"role":"assistant","content":"가능합니다. 운세 분야는 대화형 서비스로 분류되며, 이미 개통된 번호를 통해 바로 운영할 수 있습니다."}]}
+{"messages":[{"role":"user","content":"취업/창업 컨설팅도 060 서비스로 신청할 수 있나요?"},{"role":"assistant","content":"가능합니다. 해당 서비스는 대화형으로 운영되며, 자격 요건과 상담 품질 기준을 충족해야 합니다."}]}
+{"messages":[{"role":"user","content":"ARS를 통해 운세, 경마, 증권 정보를 제공할 수 있나요?"},{"role":"assistant","content":"모두 가능합니다. 운세는 대화형 또는 키패드 입력형, 경마·증권은 녹음형으로 구성할 수 있습니다."}]}
+{"messages":[{"role":"user","content":"060 서비스에는 어떤 유형이 있나요?"},{"role":"assistant","content":"녹음형(경마·증권 등), 대화형(법률·운세·노무 등), 기부형(통화 요금이 특정 단체에 기부되는 서비스)으로 구분됩니다."}]}
+{"messages":[{"role":"user","content":"060 상담 서비스란 무엇인가요?"},{"role":"assistant","content":"이용자가 상담자에게 전화하여 실시간으로 대화하는 유료 전화 서비스입니다."}]}
+{"messages":[{"role":"user","content":"정산은 언제 이뤄지나요?"},{"role":"assistant","content":"사용월의 다다음 달 말일에 정산 지급됩니다. (예: 5월 매출은 7월 말 지급)"}]}
+{"messages":[{"role":"user","content":"정산 방식은 어떻게 되나요?"},{"role":"assistant","content":"통신사 수납대행수수료 10% 공제 후 당사에 입금 → 당사 수수료 공제 후 제휴업체에 지급됩니다."}]}
+{"messages":[{"role":"user","content":"초기 비용은 얼마인가요?"},{"role":"assistant","content":"초기 프로그램비는 부가세 포함 33만원이며, 060 번호 개통 비용은 1개일 경우 당사가 부담합니다."}]}
+{"messages":[{"role":"user","content":"일반과세자가 아닌 경우 계약이 가능한가요?"},{"role":"assistant","content":"가능합니다. 다만 세금계산서 발행이 불가능하여 당사가 대신 부가세를 납부하며, 부가세 공제 후 정산액이 지급됩니다."}]}
