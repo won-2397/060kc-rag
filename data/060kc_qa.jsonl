@@ -381,3 +381,164 @@
 {"messages":[{"role":"user","content":"상담 가능한 시간 알려줘"},{"role":"assistant","content":"상담 가능 시간은 평일 09:00–18:00입니다. 지금 연결하시려면 **[전화 연결](tel:07082318295)** 버튼을 눌러주세요."}]}
 {"messages":[{"role":"user","content":"팩스 번호가 뭐예요?"},{"role":"assistant","content":"팩스는 02-6280-5588입니다. (전화 연결은 **[여기](tel:07082318295)**)"}]}
 {"messages":[{"role":"user","content":"안녕하세요! 저희 060 케이씨 AI 상담원입니다. 정확한 안내를 위해 담당자 연결을 바로 도와드리겠습니다. 지금 연결해 드릴까요? [문의: 070-8231-8295, 평일 09:00–18:00]"},{"role":"assistant","content":"네, 그 문구 그대로 사용하시고 ‘지금 연결’ 부분만 클릭-투-콜로 바꿔주세요 → **[지금 연결하기](tel:07082318295)**"}]}
+{"messages":[{"role":"user","content":"060 기부형 서비스란 무엇입니까?"},{"role":"assistant","content":"사용자가 비영리단체의 060 번호로 전화를 걸어 후원 또는 기부를 할 수 있는 서비스입니다. 기부금은 다음 달 전화요금 청구서에 합산 청구되고, 통신사가 해당 단체 계좌로 지급합니다."}]}
+{"messages":[{"role":"user","content":"060KC는 기부형 사업에 무엇을 제공합니까?"},{"role":"assistant","content":"060 시스템의 구축·개발·유지·보수를 제공합니다. (프로그램, 서버, 장비, 관리자 페이지, DB 등)"}]}
+{"messages":[{"role":"user","content":"기부형 사업에 장비가 필요합니까?"},{"role":"assistant","content":"필요하지 않습니다. 당사가 서버 단에서 장비를 제공하며, 사업자는 관리자 페이지로 모든 관리를 할 수 있습니다."}]}
+{"messages":[{"role":"user","content":"희망하는 번호를 받을 수 있습니까?"},{"role":"assistant","content":"네. 사용 가능한 범위 내에서 원하는 번호를 선택할 수 있습니다. 단, 다른 업체가 사용 중이지 않아야 합니다."}]}
+{"messages":[{"role":"user","content":"기부형 사업 절차는 어떻게 됩니까?"},{"role":"assistant","content":"1) 통신사와 제휴 계약\n2) KAIT 사전 심의 신청 (기부형은 초기 심의비 면제, 매월 14일까지)\n3) 시스템 세팅, 초기 안내 멘트 녹음 등 업무 처리\n4) 관리자 페이지 제공, 사용방법 안내\n5) 번호 개통 (다음 달 1일)"}]}
+{"messages":[{"role":"user","content":"어떤 업체와 계약해야 합니까?"},{"role":"assistant","content":"SK텔링크와의 계약이 필요합니다. 계약이 체결되면 060KC는 수수료(5%) 정책에 따라 서비스를 제공합니다."}]}
+{"messages":[{"role":"user","content":"어떤 신고나 등록이 필요합니까?"},{"role":"assistant","content":"1) 사업자 등록 (개인/법인 가능)\n2) 일반 과세자 필수 (간이·면세사업자는 불가)\n3) 부가통신사업 신고\n4) 법인세법 시행령 규정에 따른 법정기부금단체 또는 지정기부금단체 요건 충족"}]}
+{"messages":[{"role":"user","content":"060KC는 수수료를 받나요?"},{"role":"assistant","content":"네. 060 기부형 서비스에 대해 5%의 수수료를 받습니다."}]}
+{"messages":[{"role":"user","content":"통신사 수수료는 얼마입니까?"},{"role":"assistant","content":"통신사 수수료(10%)는 있습니다. 통신사가 공제 후 단체 계좌로 지급합니다."}]}
+{"messages":[{"role":"user","content":"그럼 총 수수료는 어떻게 되나요?"},{"role":"assistant","content":"통신사 수수료 10%와 060KC 수수료 5%가 공제됩니다. 따라서 기부금은 총 15% 공제 후 단체 계좌로 지급됩니다."}]}
+{"messages":[{"role":"user","content":"기부금은 언제 지급됩니까?"},{"role":"assistant","content":"“1월 이용 → 2월 청구 → 3월 지급 시작” 구조입니다. 모든 060 서비스와 동일하며, 미납분은 후속 달에 분할 지급됩니다."}]}
+{"messages":[{"role":"user","content":"미납분도 지급됩니까?"},{"role":"assistant","content":"아닙니다. 수납된 금액에 한해 지급됩니다. 미납분은 통신사가 매월 재청구·체납 관리합니다."}]}
+{"messages":[{"role":"user","content":"기부금액은 사업자가 정할 수 있습니까?"},{"role":"assistant","content":"네. SK텔링크와 협의해 정할 수 있습니다."}]}
+{"messages":[{"role":"user","content":"번호 개통 후에도 금액 변경이 가능합니까?"},{"role":"assistant","content":"네. 매월 14일까지 KAIT에 변경 신청 후, 심의 통과 시 다음 달 1일부터 적용됩니다."}]}
+{"messages":[{"role":"user","content":"기부금은 전화요금 청구서로 과금됩니까?"},{"role":"assistant","content":"네. 전화요금과 함께 청구되며, 기간통신사가 과금·수납 대행을 합니다."}]}
+{"messages":[{"role":"user","content":"관리자 프로그램에는 어떤 기능이 있습니까?"},{"role":"assistant","content":"서버의 ARS 프로그램과 웹 관리자 프로그램이 있으며, 각종 내역·통계 조회 및 설정 변경 기능을 제공합니다."}]}
+{"messages":[{"role":"user","content":"초기 멘트에 반드시 포함해야 할 사항은 무엇입니까?"},{"role":"assistant","content":"(060KC가 무료 제작 지원)\n- 정보 제공자 상호\n- 제공 정보명 및 형태\n- 정보이용료(과금 단위 및 요금)\n- 서비스 문의 전화번호\n- 이용 중단 안내 및 과금 신호음"}]}
+{"messages":[{"role":"user","content":"회사명은 무엇입니까?"},{"role":"assistant","content":"060KC (구 (주)휴먼지식정보커뮤니케이션) 입니다."}]}
+{"messages":[{"role":"user","content":"회사 홈페이지 주소는 무엇입니까?"},{"role":"assistant","content":"www.060kc.com 입니다."}]}
+{"messages":[{"role":"user","content":"회사의 자본금은 얼마입니까?"},{"role":"assistant","content":"자본금은 3억 원입니다."}]}
+{"messages":[{"role":"user","content":"보유 서버는 몇 대입니까?"},{"role":"assistant","content":"총 9대를 보유하고 있습니다."}]}
+{"messages":[{"role":"user","content":"보유 회선 수는 얼마입니까?"},{"role":"assistant","content":"총 840회선(28 E1) 입니다."}]}
+{"messages":[{"role":"user","content":"등록된 통신사업자 번호는 무엇입니까?"},{"role":"assistant","content":"별정통신사업자 등록번호는 제111129호입니다."}]}
+{"messages":[{"role":"user","content":"사업자 등록번호는 무엇입니까?"},{"role":"assistant","content":"128-86-29333 입니다."}]}
+{"messages":[{"role":"user","content":"회사의 업태와 종목은 무엇입니까?"},{"role":"assistant","content":"업태는 ‘서비스’, 종목은 ‘온라인 정보제공업’입니다."}]}
+{"messages":[{"role":"user","content":"대표이사는 누구입니까?"},{"role":"assistant","content":"김재홍 대표이사입니다."}]}
+{"messages":[{"role":"user","content":"회사 설립일은 언제입니까?"},{"role":"assistant","content":"2008년 2월 1일 설립되었습니다."}]}
+{"messages":[{"role":"user","content":"회사 주소는 어디입니까?"},{"role":"assistant","content":"(12925) 경기도 하남시 미사대로 540, A동 10층 36호 (덕풍동, 현대지식산업센터 한강미사2차 26BL)"}]}
+{"messages":[{"role":"user","content":"회사 연락처는 어떻게 됩니까?"},{"role":"assistant","content":"대표 전화: 070-8231-8295\n팩스: 02-6280-5588"}]}
+{"messages":[{"role":"user","content":"060 녹음정보형 서비스란 무엇입니까?"},{"role":"assistant","content":"060 서비스는 대화형과 녹음정보형으로 나뉩니다. 대화형은 전문가와 실시간으로 상담하는 서비스이고, 녹음정보형은 미리 녹음해 둔 정보를 유료로 들을 수 있는 서비스입니다."}]}
+{"messages":[{"role":"user","content":"060KC는 녹음정보형 사업에 무엇을 제공합니까?"},{"role":"assistant","content":"060KC는 시스템 구축·개발, 유지·보수, 회선 제공, 정보이용료 수납 대행을 제공합니다. 즉, 프로그램·서버·장비·관리자 페이지·데이터베이스까지 전반적인 통신 인프라를 제공합니다."}]}
+{"messages":[{"role":"user","content":"060KC의 제휴 실적을 볼 수 있습니까?"},{"role":"assistant","content":"상단 ‘회사 소개’ 메뉴의 ‘제휴 실적’ 페이지에서 확인할 수 있습니다."}]}
+{"messages":[{"role":"user","content":"녹음정보형 사업에 특수 장비나 전화기가 필요합니까?"},{"role":"assistant","content":"필요하지 않습니다. 서버에서 모든 장비를 제공하며, 일반 휴대폰·전화기·인터넷 전화기로도 녹음이 가능합니다. 사업자는 관리자 페이지로 관리할 수 있습니다."}]}
+{"messages":[{"role":"user","content":"희망하는 060 번호를 받을 수 있습니까?"},{"role":"assistant","content":"네. 사용 가능한 범위 내에서 원하는 번호를 부여받을 수 있습니다. 다만 매출은 번호 자체보다 홍보와 콘텐츠 품질에 좌우됩니다."}]}
+{"messages":[{"role":"user","content":"녹음정보형 서비스로 제공할 수 있는 분야는 무엇입니까?"},{"role":"assistant","content":"특별한 제한이 없습니다.\n일반 정보: 사서함, 운세, 퀴즈·경품, 종교, 스포츠, 복권, 음악·벨소리·컬러링, 기타\n전문 정보: 경마·경정·경륜, 법률, 부동산, 교육, 안내·조회, 합격자 발표, 구인·구직, 증권·금융 등"}]}
+{"messages":[{"role":"user","content":"녹음정보형 사업 절차는 어떻게 됩니까?"},{"role":"assistant","content":"1) 060KC와 제휴 계약 (방문 또는 등기)\n2) KAIT 사전 심의 신청 (매월 14일까지)\n3) 시스템 세팅, 안내 멘트 녹음\n4) 관리자 페이지 제공, 사용법 안내\n5) 번호 개통 (다음 달 1일)"}]}
+{"messages":[{"role":"user","content":"사업을 위해 어떤 계약이 필요합니까?"},{"role":"assistant","content":"기간통신사와 회선 계약, 060KC와 시스템 계약이 필요합니다. KAIT 심의는 번호 개통 절차일 뿐이며, 실제 서비스 운영에는 기간통신사 및 기술업체와의 계약이 필수입니다."}]}
+{"messages":[{"role":"user","content":"어떤 신고·등록이 필요합니까?"},{"role":"assistant","content":"1) 사업자 등록 (개인/법인 가능, 일반과세자 필수)\n2) 부가통신사업 신고 (별정통신사업 등록은 필요 없음)"}]}
+{"messages":[{"role":"user","content":"증권정보 제공 시 추가 등록이 필요한가요?"},{"role":"assistant","content":"네. 유사투자자문업 신고가 필요합니다. 반면 증권정보를 대화형으로 제공하려면 반드시 투자자문업 등록이 필요합니다."}]}
+{"messages":[{"role":"user","content":"계약 조건은 어떻게 됩니까?"},{"role":"assistant","content":"전화(070-8231-8295) 또는 ‘서비스 문의/신청’ 게시판을 통해 개별 안내합니다."}]}
+{"messages":[{"role":"user","content":"정보이용료는 언제 지급됩니까?"},{"role":"assistant","content":"“1월 이용 → 2월 청구 → 3월 지급 시작” 구조입니다. 미납분은 후속 달에 수납되는 대로 지급됩니다. 이는 060 업계 공통입니다."}]}
+{"messages":[{"role":"user","content":"고객 미납분도 지급됩니까?"},{"role":"assistant","content":"아닙니다. 수납된 금액만 지급됩니다. 미납분은 통신사가 재청구·체납관리 합니다."}]}
+{"messages":[{"role":"user","content":"정보이용료는 언제부터 발생합니까?"},{"role":"assistant","content":"‘삐-’ 소리 이후가 아니라, 공제 초수(비과금 시간)가 지난 후부터 발생합니다. 초기 안내멘트가 공제 초보다 길어서는 안 되며, KAIT와 당사가 철저히 모니터링합니다."}]}
+{"messages":[{"role":"user","content":"요금은 사업자가 정할 수 있습니까?"},{"role":"assistant","content":"네. 단, 상한선은 다음과 같습니다.\n- 일반 서비스(퀴즈, 종교, 음악 등): 30초당 500원 / 통화당 20,000원\n- 전문 서비스(증권, 경마, 법률 등): 30초당 600원 / 통화당 20,000원"}]}
+{"messages":[{"role":"user","content":"개통 후에도 요금 변경이 가능합니까?"},{"role":"assistant","content":"네. 매월 14일까지 KAIT 변경 신청 → 심의 통과 시 다음 달 1일부터 적용됩니다."}]}
+{"messages":[{"role":"user","content":"정보이용료는 어떻게 청구됩니까?"},{"role":"assistant","content":"전화요금과 함께 청구되며, 기간통신사가 과금·수납 대행을 합니다."}]}
+{"messages":[{"role":"user","content":"관리자 프로그램에는 무엇이 있습니까?"},{"role":"assistant","content":"서버의 ARS 프로그램과 웹 관리자 프로그램이 있으며, 내역·통계 조회, 각종 설정 변경 기능을 제공합니다."}]}
+{"messages":[{"role":"user","content":"녹음은 어떻게 합니까?"},{"role":"assistant","content":"1) 전화를 걸어 직접 녹음 (가장 많이 사용)\n2) 녹음된 파일을 060KC로 전달 (장기간 고정 정보에 적합)\n3) 자체 서버 녹음 파일을 060KC 서버에서 수신 (별도 프로그램 개발 필요)"}]}
+{"messages":[{"role":"user","content":"초기 멘트에 필수 포함 사항은 무엇입니까?"},{"role":"assistant","content":"- 정보 제공자 상호\n- 제공 정보명 및 형태\n- 정보이용료 단위·요금\n- 서비스 문의 번호\n- 이용 중단 안내 및 과금 신호음"}]}
+{"messages":[{"role":"user","content":"서비스 내용을 서브메뉴로 나눌 수 있습니까?"},{"role":"assistant","content":"네. 대부분의 녹음정보형 서비스는 메인 메뉴와 1·2차 서브메뉴로 구성되어 있습니다."}]}
+{"messages":[{"role":"user","content":"경마·경륜·경정은 대화형으로 제공 가능합니까?"},{"role":"assistant","content":"비효율적입니다. 특정 시간대 이용자가 몰려 1:1 상담이 불가능하므로, 지금까지는 예외 없이 녹음정보형으로만 제공되고 있습니다."}]}
+{"messages":[{"role":"user","content":"060 서비스란 무엇인가요?"},{"role":"assistant","content":"060 서비스는 ‘060’ 번호로 시작되는 유료 전화 서비스입니다. 사용자가 060-OOO-OOOO 형식의 번호로 전화를 걸면, 초기 안내 멘트(정보이용료 고지 등)가 나오고 ‘삐-’ 소리 이후 전문가와 실시간으로 1:1 통화를 하거나(대화형), 미리 녹음된 정보를 들을 수 있습니다(녹음정보형). 이러한 정보 이용 대가를 ‘정보이용료’라고 하며, 전화요금 청구서에 합산 청구됩니다. 통신사가 청구·수납을 대행합니다."}]}
+{"messages":[{"role":"user","content":"060 대화형 서비스란 무엇인가요?"},{"role":"assistant","content":"이용자와 전문가가 실시간으로 1:1 상담을 하는 서비스입니다. ‘삐-’ 소리 이후 특정 전문가를 선택하거나, 대기 중인 전문가에게 자동 연결될 수 있습니다. 주요 분야는 법률, 세무, 노무, 심리, 교육, 통역, 운세 등이며, ‘대화형’ 용어는 법원 판결문에서도 공식적으로 사용됩니다."}]}
+{"messages":[{"role":"user","content":"060KC의 제휴 실적을 볼 수 있습니까?"},{"role":"assistant","content":"상단 ‘회사 소개’ 메뉴의 ‘제휴 실적’ 페이지에서 확인할 수 있습니다."}]}
+{"messages":[{"role":"user","content":"060KC는 060 대화형 서비스를 위해 무엇을 제공합니까?"},{"role":"assistant","content":"통신 기술, 하드웨어, 소프트웨어를 제공합니다. 통신사는 번호와 회선만 제공하며, 나머지는 060KC가 전기통신 역무(프로그램, 서버, 장비, 관리자 페이지, DB)를 제공하여 전문가 그룹이 상담 서비스를 운영할 수 있도록 합니다."}]}
+{"messages":[{"role":"user","content":"060 서비스의 장점은 무엇입니까?"},{"role":"assistant","content":"이용자 측면: 후불 결제(전화요금 합산), 결제 절차 단순, 장시간 상담 부담 없음, 전문가와 직접 상담 가능.\n전문가 측면: 초기 비용 적음, 사업 론칭 용이, 재택 가능, 무료 상담 고객 낭비 방지, 인터넷 대비 매출 우수."}]}
+{"messages":[{"role":"user","content":"대화형 서비스에 필요한 장비가 있습니까?"},{"role":"assistant","content":"특별한 장비나 특수 전화기는 필요하지 않습니다. 당사가 서버단에서 모든 하드웨어와 소프트웨어를 제공합니다. 상담업체는 관리자 페이지로 프로그램을 제어할 수 있으며, 기존 전화기로 상담이 가능합니다."}]}
+{"messages":[{"role":"user","content":"060 번호는 원하는 번호로 받을 수 있습니까?"},{"role":"assistant","content":"사용 가능한 번호 내에서 희망하는 번호를 부여받을 수 있습니다. 다만, 실제 매출은 번호 자체보다는 광고 효과에 더 크게 좌우됩니다."}]}
+{"messages":[{"role":"user","content":"060KC는 기간통신 사업자입니까?"},{"role":"assistant","content":"네. 자본금 3억 이상, 기술인력, 이용자 보호계획 등 조건을 충족해 등록된 기간통신 사업자입니다."}]}
+{"messages":[{"role":"user","content":"상담 사업을 하려면 기간통신 사업자 등록이 필요한가요?"},{"role":"assistant","content":"아닙니다. 060KC가 통신 역무를 제공하므로, 상담 업체는 ‘상담 사업’ 주체로서 060KC와 제휴하면 됩니다. 판례에 의하면 기간통신역무를 무등록으로 운영하는 것은 불법이지만, 제휴 방식은 합법입니다."}]}
+{"messages":[{"role":"user","content":"060KC와 상담 업체는 업무를 어떻게 분담합니까?"},{"role":"assistant","content":"060KC는 ‘기간 통신 역무’를 제공하고, 상담 업체는 ‘상담’만 제공합니다. 각자의 전문적 역할만 수행하는 제휴 관계입니다."}]}
+{"messages":[{"role":"user","content":"상담 사업 절차는 어떻게 됩니까?"},{"role":"assistant","content":"1) 060KC와 제휴 계약\n2) KAIT 사전 심의 신청 (매월 14일까지)\n3) 시스템 세팅 및 초기 멘트 녹음\n4) 관리자 페이지 제공\n5) 060 번호 개통 (다음 달 1일)"}]}
+{"messages":[{"role":"user","content":"상담 사업을 하려면 반드시 사업자 등록이 필요한가요?"},{"role":"assistant","content":"네. 정보이용료에 부가가치세가 과세되므로 반드시 일반과세자로 사업자 등록을 해야 합니다."}]}
+{"messages":[{"role":"user","content":"통신판매업 신고도 해야 합니까?"},{"role":"assistant","content":"계약 조건은 아니지만, 네이버·다음 등 포털 광고를 위해서는 필수입니다."}]}
+{"messages":[{"role":"user","content":"업태·업종은 어떻게 등록해야 합니까?"},{"role":"assistant","content":"한국표준산업분류표에 따라 여러 선택지가 있으며, 상황에 맞게 선택할 수 있습니다."}]}
+{"messages":[{"role":"user","content":"대화형 증권정보 상담은 어떤 규제가 있나요?"},{"role":"assistant","content":"반드시 투자자문업 등록이 필요합니다. 반면 녹음정보형 증권정보는 유사투자자문업 신고만으로 가능합니다."}]}
+{"messages":[{"role":"user","content":"060KC는 기간통신 사업자에게도 시스템을 제공합니까?"},{"role":"assistant","content":"네. 다만 신규 기간통신사업자는 통신사와 제휴가 쉽지 않다는 점을 유의해야 합니다."}]}
+{"messages":[{"role":"user","content":"계약 조건은 어떻게 됩니까?"},{"role":"assistant","content":"전화(070-8231-8295) 또는 ‘서비스 문의/신청’ 게시판을 통해 문의 가능합니다. 게시판 글은 담당자에게 즉시 전달됩니다."}]}
+{"messages":[{"role":"user","content":"상담 전문가 수가 많으면 비용이 추가됩니까?"},{"role":"assistant","content":"아닙니다. 전문가 등록은 사실상 무제한 가능하며, 추가 비용은 없습니다."}]}
+{"messages":[{"role":"user","content":"개통 후에도 정보이용료 변경이 가능한가요?"},{"role":"assistant","content":"네. 매월 14일까지 KAIT에 신청하면, 다음 달 1일부터 변경 요금이 적용됩니다."}]}
+{"messages":[{"role":"user","content":"정보이용료는 언제 지급됩니까?"},{"role":"assistant","content":"예: 1월 이용분 → 2월 청구 → 3월 말 지급 시작. 다만 미납 고객이 있어 수차례 분할 지급됩니다."}]}
+{"messages":[{"role":"user","content":"고객이 요금을 미납하면 지급됩니까?"},{"role":"assistant","content":"아닙니다. 수납된 금액에 한해서만 지급됩니다."}]}
+{"messages":[{"role":"user","content":"전화요금과 정보이용료는 어떻게 청구됩니까?"},{"role":"assistant","content":"하나의 청구서에 함께 기재되지만, 서로 독립적인 요금입니다."}]}
+{"messages":[{"role":"user","content":"이용자는 전문가를 선택할 수 있습니까?"},{"role":"assistant","content":"네. 안내 멘트에 따라 전문가 선택 번호 입력 후 연결됩니다."}]}
+{"messages":[{"role":"user","content":"상담 분야를 여러 메뉴로 나눌 수 있습니까?"},{"role":"assistant","content":"네. 심의 신청 시 해당 분야를 포함해야 합니다. 예: 민사 1번, 형사 2번 등."}]}
+{"messages":[{"role":"user","content":"초기 멘트에 반드시 포함해야 하는 사항은 무엇입니까?"},{"role":"assistant","content":"- 정보제공자 상호\n- 제공 정보명 및 형태\n- 정보이용료 단위·요금\n- 문의 전화번호\n- 이용 중단 안내 및 과금 신호"}]}
+{"messages":[{"role":"user","content":"관리자 페이지에는 어떤 기능이 있습니까?"},{"role":"assistant","content":"내역 조회, 자료 관리, 통계 출력 등 다양한 메뉴를 제공하며, 모든 관리 기능을 포함합니다."}]}
+{"messages":[{"role":"user","content":"상담 전문가는 전화 수신을 차단할 수 있습니까?"},{"role":"assistant","content":"네. 자신의 상태를 ‘부재중’ 또는 특정 시간대 제한으로 설정 가능."}]}
+{"messages":[{"role":"user","content":"홈페이지 제작도 지원합니까?"},{"role":"assistant","content":"직접 제작은 하지 않지만, 전문가 상태(상담중/가능/부재중)를 연동하는 샘플 소스를 무상 제공하며, 반응형으로 구성되어 있습니다."}]}
+{"messages":[{"role":"user","content":"운세 상담을 060으로 시작하려면 060KC가 지원해 주나요?"},{"role":"assistant","content":"네. 060KC는 번호·회선 연동, ARS/웹 관리자 시스템, 정산 및 수수료 구조 설계 등 전 과정을 지원합니다. 당사 관리비 체계, 060(후불)과 할인상담(선불)의 차이, 운영 장점도 함께 안내합니다."}]}
+{"messages":[{"role":"user","content":"060 전문 업체가 맞나요?"},{"role":"assistant","content":"네. 060 번호 기반 대화형·녹음정보형 서비스를 전문으로 구축·운영해 온 업체입니다."}]}
+{"messages":[{"role":"user","content":"060 창업 절차는 어떻게 되나요?"},{"role":"assistant","content":"① 제휴 상담 → ② KAIT 서류 제출 → ③ 번호·회선 신청 및 시스템 세팅 → ④ 초기 안내멘트 적용 → ⑤ 개통 및 운영 순서로 진행됩니다. 통신사 수수료, 당사 수수료, 정산 흐름까지 함께 안내합니다."}]}
+{"messages":[{"role":"user","content":"자격증이 없어도 개통이 가능하나요?"},{"role":"assistant","content":"일부 분야는 자격증이 필요하지만, 당사 보유번호를 활용하는 방식 등으로 가능한 경우가 있습니다. 분야별 요건을 확인해 드립니다."}]}
+{"messages":[{"role":"user","content":"060 번호를 부여받으려면 어떻게 해야 하나요?"},{"role":"assistant","content":"매월 15일에 KAIT에 개통 심의 서류를 제출하며, 심의 통과 후 번호가 배정됩니다. 분야·멘트·요금 등이 신청서 기준에 맞아야 합니다."}]}
+{"messages":[{"role":"user","content":"KAIT 제출 후 개통 시점은 언제인가요?"},{"role":"assistant","content":"통상 제출 월의 다음 달 1일에 개통됩니다. 예: 6월 15일 제출 → 7월 1일 개통."}]}
+{"messages":[{"role":"user","content":"사행성 관련 번호는 개통이 어려운가요?"},{"role":"assistant","content":"네. 심의가 엄격하여 개통이 어려울 수 있습니다. 이 경우 당사가 보유한 음성·문자용 예비 번호 중에서 사용 가능한 번호를 즉시 선택해 운영을 시작할 수 있습니다."}]}
+{"messages":[{"role":"user","content":"기존에 사용하던 번호로도 진행이 가능한가요?"},{"role":"assistant","content":"가능합니다. 기존 번호 사용 시에는 별도 번호 신청 없이 제휴 계약만으로 연동해 드립니다."}]}
+{"messages":[{"role":"user","content":"세금 처리와 정산 일정은 어떻게 되나요?"},{"role":"assistant","content":"법인 사업자는 전자세금계산서 발행이 가능하며, 정산은 이용월의 다다음 달 말 지급이 원칙입니다. 예: 5월 이용분 → 7월 말 지급."}]}
+{"messages":[{"role":"user","content":"요금 체계는 어떻게 구성되나요?"},{"role":"assistant","content":"음성은 정액제 또는 30초 단위 종량제로 운영하며, 문자 대량 발송도 지원합니다. 문자 발송 비용은 월 매출에서 차감 정산됩니다."}]}
+{"messages":[{"role":"user","content":"스팸 문자 이슈 없이 운영이 가능한가요?"},{"role":"assistant","content":"스팸 정책과 발송 모니터링으로 안정적으로 운영되며, 이슈 발생 시 즉시 조치합니다."}]}
+{"messages":[{"role":"user","content":"수수료 구조는 어떻게 되나요?"},{"role":"assistant","content":"통신사 수납대행 수수료가 약 10%이며, 당사 수수료는 서비스 유형·계약 조건에 따라 책정됩니다(계약서 기준으로 확정 안내)."}]}
+{"messages":[{"role":"user","content":"번호 신청 비용과 제출 서류는 무엇이 필요한가요?"},{"role":"assistant","content":"번호당 신청비는 5,000원이며, 분야에 따라 자격증·서약서 등 서류가 요구됩니다. 번호 신청과 개통 절차는 당사가 대행합니다."}]}
+{"messages":[{"role":"user","content":"초기 프로그램 관리비가 있나요?"},{"role":"assistant","content":"네. 초기 세팅·관리자 페이지 제공·개통 대행 등을 포함해 부가세 포함 33만 원 1회가 발생합니다(세금계산서 발행 가능)."}]}
+{"messages":[{"role":"user","content":"060 정산 방식은 어떻게 되나요?"},{"role":"assistant","content":"고객 이용요금 → 통신사 청구·수납 → 통신사 수수료 공제 후 당사 입금 → 당사 수수료 등 약정 공제 후 제휴사에 지급하는 흐름으로 처리됩니다."}]}
+{"messages":[{"role":"user","content":"운세 분야를 다시 시작하려는데 수수료 퍼센트는 어떻게 되나요?"},{"role":"assistant","content":"후불(060 상담)은 통신사 약 10% + 당사 5%가 적용되며, 선불(할인상담)은 당사 10% 구조입니다."}]}
+{"messages":[{"role":"user","content":"선불(할인상담)만 단독으로 사용할 수 있나요?"},{"role":"assistant","content":"원칙적으로 불가합니다. 후불(060 상담)을 사용하시는 경우에 한해 선불을 함께 운영할 수 있습니다."}]}
+{"messages":[{"role":"user","content":"060 상담과 할인상담의 차이는 무엇인가요?"},{"role":"assistant","content":"060 상담은 이용자가 060 번호로 통화하며 통신사가 후불로 청구·수납하는 구조이고, 할인상담은 사전 결제(충전) 후 이용하는 선불 구조입니다."}]}
+{"messages":[{"role":"user","content":"과거 060 서비스를 하다 중단했는데, 다시 시작이 가능하나요?"},{"role":"assistant","content":"가능합니다. 기존 운영 경험과 현재 준비 상황(광고, 인력, 멘트)을 반영해 재개통·최적 요금·운영 방식을 설계합니다."}]}
+{"messages":[{"role":"user","content":"특정 패턴 번호(예: 1577 포함)를 사용할 수 있나요?"},{"role":"assistant","content":"사용 가능 여부는 가용 자원과 심의 기준에 따라 달라집니다. 가능한 대역에서 최대한 유사 패턴을 제안해 드립니다."}]}
+{"messages":[{"role":"user","content":"분야가 휴대폰 창업이라면 절차와 유의사항은 무엇인가요?"},{"role":"assistant","content":"통신사·당사 수수료 체계와 정산 방식, 멘트 구성(요금 고지·이용 안내), 광고·유입 구조 설계가 핵심입니다. 관련 서류와 일정은 개통 캘린더에 맞춰 진행합니다."}]}
+{"messages":[{"role":"user","content":"운세 상담을 060으로 시작하려면 060KC가 지원해 주나요?"},{"role":"assistant","content":"네. 번호·회선 연동, ARS/웹 관리자 시스템, 정산 구조 설계까지 전 과정을 지원합니다. 060(후불)과 할인상담(선불)의 차이, 운영 장점도 함께 안내합니다."}]}
+{"messages":[{"role":"user","content":"060 전문 업체가 맞나요?"},{"role":"assistant","content":"네. 060 대화형·녹음정보형을 전문으로 구축·운영해 온 업체입니다."}]}
+{"messages":[{"role":"user","content":"060 창업 절차는 어떻게 되나요?"},{"role":"assistant","content":"① 제휴 상담 → ② KAIT 서류 제출 → ③ 번호·회선 신청/시스템 세팅 → ④ 초기 안내멘트 적용 → ⑤ 개통·운영 순서로 진행됩니다."}]}
+{"messages":[{"role":"user","content":"자격증이 없어도 개통이 가능하나요?"},{"role":"assistant","content":"일부 분야는 자격증이 필요하지만, 당사 보유번호 활용 등으로 가능한 경우가 있습니다. 분야별 요건을 확인해 드립니다."}]}
+{"messages":[{"role":"user","content":"060 번호를 부여받으려면 어떻게 해야 하나요?"},{"role":"assistant","content":"매월 15일 KAIT에 개통 심의 서류를 제출합니다(분야·멘트·요금 기준 충족 필요)." }]}
+{"messages":[{"role":"user","content":"KAIT 제출 후 개통 시점은 언제인가요?"},{"role":"assistant","content":"통상 "제출 월의 다음 달 1일"에 개통됩니다. 예: 6월 15일 제출 → 7월 1일 개통."}]}
+{"messages":[{"role":"user","content":"사행성 관련 번호는 개통이 어려운가요?"},{"role":"assistant","content":"네. 심의가 엄격해 어려울 수 있습니다. 이 경우 당사 보유 예비 번호 중 사용 가능한 번호로 즉시 운영을 시작할 수 있습니다."}]}
+{"messages":[{"role":"user","content":"기존에 쓰던 번호로도 진행이 가능한가요?"},{"role":"assistant","content":"가능합니다. 제휴 계약 후 연동만 하면 됩니다."}]}
+{"messages":[{"role":"user","content":"세금 처리와 정산 일정은 어떻게 되나요?"},{"role":"assistant","content":"정산은 "이용월의 다다음 달 말" 지급이 원칙입니다(예: 5월 이용분 → 7월 말 지급)."}]}
+{"messages":[{"role":"user","content":"간이과세자/면세사업자로도 계약이 가능한가요?"},{"role":"assistant","content":"가능합니다. 다만 부가세 공제 후 정산액이 지급됩니다."}]}
+{"messages":[{"role":"user","content":"요금 체계는 어떻게 구성되나요?"},{"role":"assistant","content":"음성은 정액제 또는 30초 단위 종량제, 문자 대량 발송도 지원하며 문자비는 매출에서 차감 정산됩니다."}]}
+{"messages":[{"role":"user","content":"스팸 문자 이슈 없이 운영이 가능한가요?"},{"role":"assistant","content":"네. 스팸 정책과 발송 모니터링으로 안정적으로 운영하며, 이슈 발생 시 즉시 조치합니다."}]}
+{"messages":[{"role":"user","content":"수수료 구조는 어떻게 되나요?"},{"role":"assistant","content":"060(후불) 기준 통신사 수납대행 약 10% + 당사 5%가 적용됩니다. 선불(할인상담)은 당사 10% 구조입니다."}]}
+{"messages":[{"role":"user","content":"초기 심의비는 얼마인가요?"},{"role":"assistant","content":"55만원(부가세 포함)입니다. 선불(할인상담)과 후불(060 상담)을 모두 도입하실 경우 110만원(부가세 포함)입니다."}]}
+{"messages":[{"role":"user","content":"번호 신청/개통에 필요한 서류는 무엇인가요?"},{"role":"assistant","content":"분야별 자격증·서약서(해당 시), 사업자 서류, 안내멘트 원고/파일 등이 필요하며 KAIT 심의는 당사가 대행합니다."}]}
+{"messages":[{"role":"user","content":"초기 프로그램/시스템 세팅 비용도 있나요?"},{"role":"assistant","content":"있습니다. 관리자 페이지 제공·시스템 세팅·개통 대행 등 초기 구축 범위에 따라 책정되며 견적 시 함께 안내드립니다(심의비와 별도)."}]}
+{"messages":[{"role":"user","content":"060 정산 방식은 어떻게 되나요?"},{"role":"assistant","content":"고객 이용요금 → 통신사 청구·수납 → 통신사 수수료 공제 후 당사 입금 → 당사 수수료 등 약정 공제 후 제휴사 지급 흐름입니다."}]}
+{"messages":[{"role":"user","content":"운세 분야를 다시 시작하려는데 수수료 퍼센트는 어떻게 되나요?"},{"role":"assistant","content":"후불(060 상담)은 통신사 약 10% + 당사 5%, 선불(할인상담)은 당사 10%입니다."}]}
+{"messages":[{"role":"user","content":"선불(할인상담)만 단독으로 사용할 수 있나요?"},{"role":"assistant","content":"원칙적으로 불가합니다. 후불(060 상담) 이용 시에만 선불을 함께 운영할 수 있습니다."}]}
+{"messages":[{"role":"user","content":"060 상담과 할인상담의 차이는 무엇인가요?"},{"role":"assistant","content":"060 상담은 이용자가 060 번호로 통화하고 통신사가 후불로 청구·수납하는 구조, 할인상담은 사전 결제(충전) 후 이용하는 선불 구조입니다."}]}
+{"messages":[{"role":"user","content":"특정 패턴 번호(예: 1577 포함)를 사용할 수 있나요?"},{"role":"assistant","content":"가용 자원과 심의 기준에 따라 다릅니다. 가능한 대역에서 유사 패턴을 제안해 드립니다."}]}
+{"messages":[{"role":"user","content":"060 녹음정보형으로 시작하고 싶은데 요금을 콜당 10,000원으로 설정할 수 있나요?"},{"role":"assistant","content":"심의 범위 내에서 통화당 과금(정액제) 구성이 가능합니다. 구체 요금은 KAIT 심의 기준에 맞춰 설계합니다."}]}
+{"messages":[{"role":"user","content":"언제부터 시작할 수 있나요?"},{"role":"assistant","content":"표준 일정은 KAIT 제출 월의 다음 달 1일 개통입니다. 급하면 당사 보유 예비 번호로 바로 시작하는 방안도 검토합니다."}]}
+{"messages":[{"role":"user","content":"문자 발송 서비스를 함께 이용하려면 무엇을 준비해야 하나요?"},{"role":"assistant","content":"통신사실증명원과 계약서가 필요합니다. 증명원은 발신 번호 소유자가 통신사 고객센터로 신청하면 간단히 발급됩니다."}]}
+{"messages":[{"role":"user","content":"이번 주 금요일부터 문자 발송을 시작할 수 있나요?"},{"role":"assistant","content":"가능합니다. 계약서 송부 후 테스트용 관리자 계정(ID/PW)을 미리 드려 점검하실 수 있습니다."}]}
+{"messages":[{"role":"user","content":"문자 단가를 할인해 줄 수 있나요?"},{"role":"assistant","content":"어렵습니다. 동일 조건으로 운영 중입니다. 대신 스팸 없는 안정적 발송 품질을 보장합니다."}]}
+{"messages":[{"role":"user","content":"문자 발송 서비스 정산 방식은 어떻게 되나요?"},{"role":"assistant","content":"매월 직전월 발송 내역을 정산 파일로 전달 → 해당 금액을 당사 계좌로 입금 → 세금계산서 발행 절차로 진행합니다."}]}
+{"messages":[{"role":"user","content":"타사(예: 060300 SK)에서 060 서비스를 사용 중인데, 060KC로 전환이 간편한가요?"},{"role":"assistant","content":"네. 라우팅 변경만으로 전환 가능합니다. 문자와 060을 한 업체로 통합 운영하시면 관리가 수월합니다."}]}
+{"messages":[{"role":"user","content":"060KC 관리비가 어떻게 되나요?"},{"role":"assistant","content":"원칙적으로 통신사 약 10% + 당사 5%입니다. 과거 일부 협력 건에서는 당사 9.5%를 적용한 사례가 있으며, 최종 조건은 계약서로 확정됩니다."}]}
+{"messages":[{"role":"user","content":"API 연동이 가능한가요?"},{"role":"assistant","content":"가능합니다. 외부 앱/웹과 관리자 페이지를 연동할 수 있도록 API 문서를 제공합니다."}]}
+{"messages":[{"role":"user"," content":"블로그를 보고 연락했는데, 견적서를 받을 수 있나요?"},{"role":"assistant","content":"가능합니다. 서비스 범위(060/할인상담/문자)와 예상 규모를 알려 주시면 이메일로 견적서를 발송해 드립니다."}]}
+{"messages":[{"role":"user","content":"녹음형 운세 정보만으로 운영이 가능한가요?"},{"role":"assistant","content":"가능합니다. 녹음 업로드/관리, 이용자 접근 흐름을 설계해 드립니다."}]}
+{"messages":[{"role":"user","content":"060 서비스란 무엇인가요?"},{"role":"assistant","content":"060 서비스는 ‘060’ 번호로 시작되는 유료 전화 서비스입니다. 사용자가 060-OOO-OOOO 형식의 번호로 전화를 걸면, 초기 안내 멘트(정보이용료 고지 등)가 나오고 ‘삐-’ 소리 이후 전문가와 실시간으로 1:1 통화를 하거나(대화형), 미리 녹음된 정보를 들을 수 있습니다(녹음정보형). 이러한 정보 이용 대가를 ‘정보이용료’라고 하며, 전화요금 청구서에 합산 청구됩니다. 통신사가 청구·수납을 대행합니다."}]}
+{"messages":[{"role":"user","content":"060 대화형 서비스란 무엇인가요?"},{"role":"assistant","content":"이용자와 전문가가 실시간으로 1:1 상담을 하는 서비스입니다. ‘삐-’ 소리 이후 특정 전문가를 선택하거나, 대기 중인 전문가에게 자동 연결될 수 있습니다. 주요 분야는 법률, 세무, 노무, 심리, 교육, 통역, 운세 등이며, ‘대화형’ 용어는 법원 판결문에서도 공식적으로 사용됩니다."}]}
+{"messages":[{"role":"user","content":"060KC의 제휴 실적을 볼 수 있습니까?"},{"role":"assistant","content":"상단 ‘회사 소개’ 메뉴의 ‘제휴 실적’ 페이지에서 확인할 수 있습니다."}]}
+{"messages":[{"role":"user","content":"060KC는 060 대화형 서비스를 위해 무엇을 제공합니까?"},{"role":"assistant","content":"통신 기술, 하드웨어, 소프트웨어를 제공합니다. 통신사는 번호와 회선만 제공하며, 나머지는 060KC가 전기통신 역무(프로그램, 서버, 장비, 관리자 페이지, DB)를 제공하여 전문가 그룹이 상담 서비스를 운영할 수 있도록 합니다."}]}
+{"messages":[{"role":"user","content":"060 서비스의 장점은 무엇입니까?"},{"role":"assistant","content":"이용자 측면: 후불 결제(전화요금 합산), 결제 절차 단순, 장시간 상담 부담 없음, 전문가와 직접 상담 가능.\n전문가 측면: 초기 비용 적음, 사업 론칭 용이, 재택 가능, 무료 상담 고객 낭비 방지, 인터넷 대비 매출 우수."}]}
+{"messages":[{"role":"user","content":"대화형 서비스에 필요한 장비가 있습니까?"},{"role":"assistant","content":"특별한 장비나 특수 전화기는 필요하지 않습니다. 당사가 서버단에서 모든 하드웨어와 소프트웨어를 제공합니다. 상담업체는 관리자 페이지로 프로그램을 제어할 수 있으며, 기존 전화기로 상담이 가능합니다."}]}
+{"messages":[{"role":"user","content":"060 번호는 원하는 번호로 받을 수 있습니까?"},{"role":"assistant","content":"사용 가능한 번호 내에서 희망하는 번호를 부여받을 수 있습니다. 다만, 실제 매출은 번호 자체보다는 광고 효과에 더 크게 좌우됩니다."}]}
+{"messages":[{"role":"user","content":"060KC는 기간통신 사업자입니까?"},{"role":"assistant","content":"네. 자본금 3억 이상, 기술인력, 이용자 보호계획 등 조건을 충족해 등록된 기간통신 사업자입니다."}]}
+{"messages":[{"role":"user","content":"상담 사업을 하려면 기간통신 사업자 등록이 필요한가요?"},{"role":"assistant","content":"아닙니다. 060KC가 통신 역무를 제공하므로, 상담 업체는 ‘상담 사업’ 주체로서 060KC와 제휴하면 됩니다. 판례에 의하면 기간통신역무를 무등록으로 운영하는 것은 불법이지만, 제휴 방식은 합법입니다."}]}
+{"messages":[{"role":"user","content":"060KC와 상담 업체는 업무를 어떻게 분담합니까?"},{"role":"assistant","content":"060KC는 ‘기간 통신 역무’를 제공하고, 상담 업체는 ‘상담’만 제공합니다. 각자의 전문적 역할만 수행하는 제휴 관계입니다."}]}
+{"messages":[{"role":"user","content":"상담 사업 절차는 어떻게 됩니까?"},{"role":"assistant","content":"1) 060KC와 제휴 계약\n2) KAIT 사전 심의 신청 (매월 14일까지)\n3) 시스템 세팅 및 초기 멘트 녹음\n4) 관리자 페이지 제공\n5) 060 번호 개통 (다음 달 1일)"}]}
+{"messages":[{"role":"user","content":"상담 사업을 하려면 반드시 사업자 등록이 필요한가요?"},{"role":"assistant","content":"네. 정보이용료에 부가가치세가 과세되므로 반드시 일반과세자로 사업자 등록을 해야 합니다."}]}
+{"messages":[{"role":"user","content":"통신판매업 신고도 해야 합니까?"},{"role":"assistant","content":"계약 조건은 아니지만, 네이버·다음 등 포털 광고를 위해서는 필수입니다."}]}
+{"messages":[{"role":"user","content":"업태·업종은 어떻게 등록해야 합니까?"},{"role":"assistant","content":"한국표준산업분류표에 따라 여러 선택지가 있으며, 상황에 맞게 선택할 수 있습니다."}]}
+{"messages":[{"role":"user","content":"대화형 증권정보 상담은 어떤 규제가 있나요?"},{"role":"assistant","content":"반드시 투자자문업 등록이 필요합니다. 반면 녹음정보형 증권정보는 유사투자자문업 신고만으로 가능합니다."}]}
+{"messages":[{"role":"user","content":"060KC는 기간통신 사업자에게도 시스템을 제공합니까?"},{"role":"assistant","content":"네. 다만 신규 기간통신사업자는 통신사와 제휴가 쉽지 않다는 점을 유의해야 합니다."}]}
+{"messages":[{"role":"user","content":"계약 조건은 어떻게 됩니까?"},{"role":"assistant","content":"전화(070-8231-8295) 또는 ‘서비스 문의/신청’ 게시판을 통해 문의 가능합니다. 게시판 글은 담당자에게 즉시 전달됩니다."}]}
+{"messages":[{"role":"user","content":"상담 전문가 수가 많으면 비용이 추가됩니까?"},{"role":"assistant","content":"아닙니다. 전문가 등록은 사실상 무제한 가능하며, 추가 비용은 없습니다."}]}
+{"messages":[{"role":"user","content":"개통 후에도 정보이용료 변경이 가능한가요?"},{"role":"assistant","content":"네. 매월 14일까지 KAIT에 신청하면, 다음 달 1일부터 변경 요금이 적용됩니다."}]}
+{"messages":[{"role":"user","content":"정보이용료는 언제 지급됩니까?"},{"role":"assistant","content":"예: 1월 이용분 → 2월 청구 → 3월 말 지급 시작. 다만 미납 고객이 있어 수차례 분할 지급됩니다."}]}
+{"messages":[{"role":"user","content":"고객이 요금을 미납하면 지급됩니까?"},{"role":"assistant","content":"아닙니다. 수납된 금액에 한해서만 지급됩니다."}]}
+{"messages":[{"role":"user","content":"전화요금과 정보이용료는 어떻게 청구됩니까?"},{"role":"assistant","content":"하나의 청구서에 함께 기재되지만, 서로 독립적인 요금입니다."}]}
+{"messages":[{"role":"user","content":"이용자는 전문가를 선택할 수 있습니까?"},{"role":"assistant","content":"네. 안내 멘트에 따라 전문가 선택 번호 입력 후 연결됩니다."}]}
+{"messages":[{"role":"user","content":"상담 분야를 여러 메뉴로 나눌 수 있습니까?"},{"role":"assistant","content":"네. 심의 신청 시 해당 분야를 포함해야 합니다. 예: 민사 1번, 형사 2번 등."}]}
+{"messages":[{"role":"user","content":"초기 멘트에 반드시 포함해야 하는 사항은 무엇입니까?"},{"role":"assistant","content":"- 정보제공자 상호\n- 제공 정보명 및 형태\n- 정보이용료 단위·요금\n- 문의 전화번호\n- 이용 중단 안내 및 과금 신호"}]}
+{"messages":[{"role":"user","content":"관리자 페이지에는 어떤 기능이 있습니까?"},{"role":"assistant","content":"내역 조회, 자료 관리, 통계 출력 등 다양한 메뉴를 제공하며, 모든 관리 기능을 포함합니다."}]}
+{"messages":[{"role":"user","content":"상담 전문가는 전화 수신을 차단할 수 있습니까?"},{"role":"assistant","content":"네. 자신의 상태를 ‘부재중’ 또는 특정 시간대 제한으로 설정 가능."}]}
+{"messages":[{"role":"user","content":"홈페이지 제작도 지원합니까?"},{"role":"assistant","content":"직접 제작은 하지 않지만, 전문가 상태(상담중/가능/부재중)를 연동하는 샘플 소스를 무상 제공하며, 반응형으로 구성되어 있습니다."}]}
+{"messages":[{"role":"user","content":"IDC가 무엇인가요?"},{"role":"assistant","content":"IDC(Internet Data Center)는 서버와 통신 장비를 전문 시설에 보관·운영하는 하우징(코로케이션) 센터입니다. 당사는 SK텔링크 하우징룸과 SK브로드밴드 서초 IDC에 시스템을 설치·운영하며, 전원·회선·장비 이중화, 물리·네트워크 보안, 24시간 모니터링을 제공합니다. 고객사 사무실에 별도 서버 설치는 필요 없고, 상담사는 기존 전화기로 상담하시면 됩니다."}]}
