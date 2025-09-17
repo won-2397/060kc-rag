@@ -78,20 +78,41 @@ function cosineSimilarity(a, b) {
 
 const cheapTextScore = (q, it) => {
   const s = v => String(v || "").toLowerCase();
-  const Q = s(q), T = `${s(it.question)} ${s(it.answer)}`;
+  const Q = s(q);
+  const question = s(it.question);
+  const answer = s(it.answer);
   
-  // 정확한 키워드 매칭 강화
-  const qWords = Q.split(/\s+/).filter(Boolean);
   let score = 0;
   
-  // 질문과 답변에서 각각 점수 계산
+  // 1. 단어 단위 매칭 (기본 검색)
+  const qWords = Q.split(/\s+/).filter(w => w.length >= 2);
   qWords.forEach(word => {
-    if (s(it.question).includes(word)) score += 0.3; // 질문 일치 시 높은 점수
-    if (s(it.answer).includes(word)) score += 0.2;   // 답변 일치 시 중간 점수
+    if (question.includes(word)) score += 0.25;
+    if (answer.includes(word)) score += 0.2;
   });
   
-  // 완전 일치 보너스
-  if (s(it.question).includes(Q) || Q.includes(s(it.question))) score += 0.4;
+  // 2. 문장 패턴 매칭 (자연어 질문)
+  const cleanQ = Q.replace(/[있나요있나여뭐에요무엇인가요어떻게얼마]/g, '').trim();
+  const cleanQuestion = question.replace(/[있나요있나여뭐에요무엇인가요어떻게얼마]/g, '').trim();
+  
+  // 핵심 키워드가 같으면 보너스
+  if (cleanQ && cleanQuestion.includes(cleanQ)) score += 0.3;
+  if (cleanQ && cleanQ.includes(cleanQuestion)) score += 0.3;
+  
+  // 3. 완전 일치 또는 포함 관계 보너스
+  if (question.includes(Q)) score += 0.4;
+  if (Q.includes(question)) score += 0.4;
+  
+  // 4. 질문 패턴 일치 보너스
+  const questionSuffixes = ['있나요', '있나여', '뭐에요', '무엇인가요', '어떻게', '얼마'];
+  const qHasPattern = questionSuffixes.some(suffix => Q.includes(suffix));
+  const targetHasPattern = questionSuffixes.some(suffix => question.includes(suffix));
+  
+  if (qHasPattern && targetHasPattern) score += 0.2;
+  
+  // 5. 단어 개수 정규화 (긴 질문이 불리하지 않도록)
+  const wordCount = Math.max(qWords.length, 1);
+  score = score / Math.sqrt(wordCount);
   
   return Math.min(score, 1.0);
 };
