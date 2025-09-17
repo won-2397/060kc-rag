@@ -13,11 +13,11 @@ const app = express();
 const PORT = Number(process.env.PORT) || 3000;
 const RAG_THRESHOLD = Number(process.env.RAG_THRESHOLD || 0.35); // 다시 높은 값으로
 
-// 파일 경로 설정: EMB_PATH 없으면 레포 루트의 embeddings.json 사용
+// 파일 경로 설정: EMB_PATH 없으면 data/embeddings.json 사용
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const EMB_PATH = process.env.EMB_PATH
   ? path.resolve(__dirname, process.env.EMB_PATH)
-  : path.join(__dirname, "embeddings.json");
+  : path.join(__dirname, "data", "embeddings.json");
 
 console.log("[BOOT] EMB_PATH =", EMB_PATH);
 
