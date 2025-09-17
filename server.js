@@ -78,12 +78,19 @@ function cosineSimilarity(a, b) {
 
 const cheapTextScore = (q, it) => {
   const s = v => String(v || "").toLowerCase();
-  const Q = s(q), T = `${s(it.question)} ${s(it.text)}`;
+  const Q = s(q), T = `${s(it.question)} ${s(it.text)} ${s(it.answer)}`;
   const keys = Q.split(/\s+/).filter(Boolean);
-  const score = keys.reduce((acc, k) => acc + (T.includes(k) ? 0.1 : 0), 0);
-  return Math.min(score, 0.6); // 상한
+  
+  let score = 0;
+  keys.forEach(k => {
+    if (T.includes(k)) score += 0.15;
+  });
+  
+  // 완전 일치 보너스
+  if (T.includes(Q)) score += 0.2;
+  
+  return Math.min(score, 0.8);
 };
-
 // ---- 검색 ----
 function search({ question, qvec }) {
   const scored = EMB.map(it => {
