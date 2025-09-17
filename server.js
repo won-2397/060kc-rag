@@ -1,4 +1,4 @@
-// server.js (RAG · ESM 최종본)
+// server.js (RAG · ESM 최종본) - 포트 3000 수정
 // 기능: embeddings.json 로드(q/a/e 또는 question/answer/vector 자동 지원) → POST /ask 응답
 import express from "express";
 import cors from "cors";
@@ -10,7 +10,7 @@ import { fileURLToPath } from "url";
 dotenv.config();
 
 const app = express();
-const PORT = Number(process.env.PORT) || 10000;
+const PORT = Number(process.env.PORT) || 3000; // ✅ 3000으로 변경
 const RAG_THRESHOLD = Number(process.env.RAG_THRESHOLD || 0.35);
 
 // 파일 경로 설정: EMB_PATH 없으면 레포 루트의 embeddings.json 사용
@@ -18,7 +18,6 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const EMB_PATH = process.env.EMB_PATH
   ? path.resolve(__dirname, process.env.EMB_PATH)
   : path.join(__dirname, "embeddings.json");
-
 
 console.log("[BOOT] EMB_PATH =", EMB_PATH);
 
