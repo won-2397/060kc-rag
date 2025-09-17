@@ -11,7 +11,7 @@ dotenv.config();
 
 const app = express();
 const PORT = Number(process.env.PORT) || 3000; // ✅ 3000으로 변경
-const RAG_THRESHOLD = Number(process.env.RAG_THRESHOLD || 0.35);
+const RAG_THRESHOLD = Number(process.env.RAG_THRESHOLD || 0.15);
 
 // 파일 경로 설정: EMB_PATH 없으면 레포 루트의 embeddings.json 사용
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
