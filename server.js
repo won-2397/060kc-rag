@@ -82,17 +82,14 @@ const cheapTextScore = (q, it) => {
   const question = s(it.question);
   const answer = s(it.answer);
   
-  // 텍스트 정규화 함수 (오타, 반말 처리)
+  // 텍스트 정규화 (기존 코드 유지)
   const normalize = (text) => {
     return text
-      // 오타/변형 정규화
       .replace(/잇나여|잇나요|있냐|잇냐|잇나|있나\?/g, '있나요')
       .replace(/뭐에요|뭐야|뭔가요|뭔가여|머에요/g, '무엇인가요')
       .replace(/어떻게요|어케|어떠케|어떻케/g, '어떻게')
       .replace(/얼마에요|얼마야|얼마냐|얼마인가요/g, '얼마')
-      .replace(/왜요|왜냐|와이|웨/g, '왜')
-      .replace(/언제요|언제냐|언제야/g, '언제')
-      // 공백 정리
+      .replace(/이용하고싶다|이용하고싶어요|사용하고싶다/g, '이용방법')
       .replace(/\s+/g, ' ')
       .trim();
   };
@@ -102,46 +99,43 @@ const cheapTextScore = (q, it) => {
   
   let score = 0;
   
-  // 1. 정규화된 텍스트로 완전 매칭
-  if (normalizedQuestion.includes(normalizedQ) || normalizedQ.includes(normalizedQuestion)) {
-    score += 0.6;
-  }
-  
-  // 2. 핵심 키워드 추출 및 매칭
-  const extractKeywords = (text) => {
-    return text
-      .replace(/있나요|무엇인가요|어떻게|얼마|왜|언제/g, '')
-      .replace(/[은는이가을를에서와과도만까지부터]/g, '')
-      .split(/\s+/)
-      .filter(w => w.length >= 1);
+  // 1. 질문 의도 분류
+  const getQuestionIntent = (text) => {
+    if (/이용|사용|신청|시작|운영|개통/.test(text)) return 'usage';
+    if (/자격증|서약서|필요|조건|요건/.test(text)) return 'requirement';
+    if (/비용|요금|수수료|가격|얼마/.test(text)) return 'cost';
+    if (/절차|방법|어떻게|순서/.test(text)) return 'process';
+    return 'general';
   };
   
-  const qKeywords = extractKeywords(normalizedQ);
-  const questionKeywords = extractKeywords(normalizedQuestion);
+  const qIntent = getQuestionIntent(normalizedQ);
+  const targetIntent = getQuestionIntent(normalizedQuestion);
   
-  // 키워드 매칭
+  // 2. 의도가 다르면 점수 크게 감점
+  if (qIntent !== 'general' && targetIntent !== 'general' && qIntent !== targetIntent) {
+    score -= 0.5;
+  }
+  
+  // 3. 핵심 키워드 매칭
+  const qKeywords = normalizedQ.split(/\s+/).filter(w => w.length >= 2);
   qKeywords.forEach(keyword => {
-    if (keyword.length >= 2) { // 2글자 이상 키워드
-      if (normalizedQuestion.includes(keyword)) score += 0.4;
-      if (answer.includes(keyword)) score += 0.3;
-    }
+    if (normalizedQuestion.includes(keyword)) score += 0.3;
+    if (answer.includes(keyword)) score += 0.2;
   });
   
-  // 3. 원본 텍스트 단어 매칭 (보조)
-  const qWords = Q.split(/\s+/).filter(w => w.length >= 2);
-  qWords.forEach(word => {
-    if (question.includes(word)) score += 0.2;
-    if (answer.includes(word)) score += 0.15;
-  });
+  // 4. 완전 일치 보너스
+  if (normalizedQuestion.includes(normalizedQ) || normalizedQ.includes(normalizedQuestion)) {
+    score += 0.4;
+  }
   
-  // 4. 질문 패턴 보너스
-  const questionPatterns = ['있나요', '무엇인가요', '어떻게', '얼마', '왜', '언제'];
+  // 5. 질문 패턴 매칭
+  const questionPatterns = ['있나요', '무엇인가요', '어떻게', '얼마', '이용방법'];
   const qHasPattern = questionPatterns.some(pattern => normalizedQ.includes(pattern));
   const targetHasPattern = questionPatterns.some(pattern => normalizedQuestion.includes(pattern));
   
   if (qHasPattern && targetHasPattern) score += 0.2;
   
-  return Math.min(score, 1.0);
+  return Math.max(0, Math.min(score, 1.0)); // 음수 방지
 };
 // ---- 검색 ----
 function search({ question, qvec }) {
