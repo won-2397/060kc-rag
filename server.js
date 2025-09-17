@@ -82,37 +82,64 @@ const cheapTextScore = (q, it) => {
   const question = s(it.question);
   const answer = s(it.answer);
   
+  // 텍스트 정규화 함수 (오타, 반말 처리)
+  const normalize = (text) => {
+    return text
+      // 오타/변형 정규화
+      .replace(/잇나여|잇나요|있냐|잇냐|잇나|있나\?/g, '있나요')
+      .replace(/뭐에요|뭐야|뭔가요|뭔가여|머에요/g, '무엇인가요')
+      .replace(/어떻게요|어케|어떠케|어떻케/g, '어떻게')
+      .replace(/얼마에요|얼마야|얼마냐|얼마인가요/g, '얼마')
+      .replace(/왜요|왜냐|와이|웨/g, '왜')
+      .replace(/언제요|언제냐|언제야/g, '언제')
+      // 공백 정리
+      .replace(/\s+/g, ' ')
+      .trim();
+  };
+  
+  const normalizedQ = normalize(Q);
+  const normalizedQuestion = normalize(question);
+  
   let score = 0;
   
-  // 1. 단어 단위 매칭 (기본 검색)
-  const qWords = Q.split(/\s+/).filter(w => w.length >= 2);
-  qWords.forEach(word => {
-    if (question.includes(word)) score += 0.25;
-    if (answer.includes(word)) score += 0.2;
+  // 1. 정규화된 텍스트로 완전 매칭
+  if (normalizedQuestion.includes(normalizedQ) || normalizedQ.includes(normalizedQuestion)) {
+    score += 0.6;
+  }
+  
+  // 2. 핵심 키워드 추출 및 매칭
+  const extractKeywords = (text) => {
+    return text
+      .replace(/있나요|무엇인가요|어떻게|얼마|왜|언제/g, '')
+      .replace(/[은는이가을를에서와과도만까지부터]/g, '')
+      .split(/\s+/)
+      .filter(w => w.length >= 1);
+  };
+  
+  const qKeywords = extractKeywords(normalizedQ);
+  const questionKeywords = extractKeywords(normalizedQuestion);
+  
+  // 키워드 매칭
+  qKeywords.forEach(keyword => {
+    if (keyword.length >= 2) { // 2글자 이상 키워드
+      if (normalizedQuestion.includes(keyword)) score += 0.4;
+      if (answer.includes(keyword)) score += 0.3;
+    }
   });
   
-  // 2. 문장 패턴 매칭 (자연어 질문)
-  const cleanQ = Q.replace(/[있나요있나여뭐에요무엇인가요어떻게얼마]/g, '').trim();
-  const cleanQuestion = question.replace(/[있나요있나여뭐에요무엇인가요어떻게얼마]/g, '').trim();
+  // 3. 원본 텍스트 단어 매칭 (보조)
+  const qWords = Q.split(/\s+/).filter(w => w.length >= 2);
+  qWords.forEach(word => {
+    if (question.includes(word)) score += 0.2;
+    if (answer.includes(word)) score += 0.15;
+  });
   
-  // 핵심 키워드가 같으면 보너스
-  if (cleanQ && cleanQuestion.includes(cleanQ)) score += 0.3;
-  if (cleanQ && cleanQ.includes(cleanQuestion)) score += 0.3;
-  
-  // 3. 완전 일치 또는 포함 관계 보너스
-  if (question.includes(Q)) score += 0.4;
-  if (Q.includes(question)) score += 0.4;
-  
-  // 4. 질문 패턴 일치 보너스
-  const questionSuffixes = ['있나요', '있나여', '뭐에요', '무엇인가요', '어떻게', '얼마'];
-  const qHasPattern = questionSuffixes.some(suffix => Q.includes(suffix));
-  const targetHasPattern = questionSuffixes.some(suffix => question.includes(suffix));
+  // 4. 질문 패턴 보너스
+  const questionPatterns = ['있나요', '무엇인가요', '어떻게', '얼마', '왜', '언제'];
+  const qHasPattern = questionPatterns.some(pattern => normalizedQ.includes(pattern));
+  const targetHasPattern = questionPatterns.some(pattern => normalizedQuestion.includes(pattern));
   
   if (qHasPattern && targetHasPattern) score += 0.2;
-  
-  // 5. 단어 개수 정규화 (긴 질문이 불리하지 않도록)
-  const wordCount = Math.max(qWords.length, 1);
-  score = score / Math.sqrt(wordCount);
   
   return Math.min(score, 1.0);
 };
