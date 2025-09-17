@@ -4,7 +4,7 @@
 //   windows)   $env:OPENAI_API_KEY="..." ; node generate_embeddings.js data/060kc_qa.jsonl embeddings.json
 //
 // ENV 옵션:
-//   EMBED_MODEL=text-embedding-3-small
+//   EMBED_MODEL=text-embedding-3-large
 //   EMBED_MODE=QA | Q      // 기본: QA (Q+A 합쳐서 임베딩)
 //   EMBED_BATCH=100
 
@@ -21,7 +21,7 @@ const client = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
 
 const inPath  = process.argv[2] || path.join("data", "060kc_qa.jsonl");
 const outPath = process.argv[3] || path.join("embeddings.json"); // ✅ 루트에 저장!
-const MODEL   = process.env.EMBED_MODEL || "text-embedding-3-small";
+const MODEL   = process.env.EMBED_MODEL || "text-embedding-3-large";
 const MODE    = (process.env.EMBED_MODE || "QA").toUpperCase();  // "QA" | "Q"
 const BATCH   = Number(process.env.EMBED_BATCH || 100);
 
