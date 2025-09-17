@@ -11,7 +11,7 @@ dotenv.config();
 
 const app = express();
 const PORT = Number(process.env.PORT) || 3000; // ✅ 3000으로 변경
-const RAG_THRESHOLD = Number(process.env.RAG_THRESHOLD || 0.35);
+const RAG_THRESHOLD = Number(process.env.RAG_THRESHOLD || 0.25);
 
 // 파일 경로 설정: EMB_PATH 없으면 레포 루트의 embeddings.json 사용
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -78,18 +78,22 @@ function cosineSimilarity(a, b) {
 
 const cheapTextScore = (q, it) => {
   const s = v => String(v || "").toLowerCase();
-  const Q = s(q), T = `${s(it.question)} ${s(it.text)} ${s(it.answer)}`;
-  const keys = Q.split(/\s+/).filter(Boolean);
+  const Q = s(q), T = `${s(it.question)} ${s(it.answer)}`;
   
+  // 정확한 키워드 매칭 강화
+  const qWords = Q.split(/\s+/).filter(Boolean);
   let score = 0;
-  keys.forEach(k => {
-    if (T.includes(k)) score += 0.15;
+  
+  // 질문과 답변에서 각각 점수 계산
+  qWords.forEach(word => {
+    if (s(it.question).includes(word)) score += 0.3; // 질문 일치 시 높은 점수
+    if (s(it.answer).includes(word)) score += 0.2;   // 답변 일치 시 중간 점수
   });
   
   // 완전 일치 보너스
-  if (T.includes(Q)) score += 0.2;
+  if (s(it.question).includes(Q) || Q.includes(s(it.question))) score += 0.4;
   
-  return Math.min(score, 0.8);
+  return Math.min(score, 1.0);
 };
 // ---- 검색 ----
 function search({ question, qvec }) {
