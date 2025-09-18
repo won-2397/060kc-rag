@@ -11,7 +11,7 @@ dotenv.config();
 
 const app = express();
 const PORT = Number(process.env.PORT) || 3000; // ✅ 3000으로 변경
-const RAG_THRESHOLD = Number(process.env.RAG_THRESHOLD || 0.35);
+const RAG_THRESHOLD = Number(process.env.RAG_THRESHOLD || 0.25);
 
 // 파일 경로 설정: EMB_PATH 없으면 레포 루트의 embeddings.json 사용
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -78,12 +78,65 @@ function cosineSimilarity(a, b) {
 
 const cheapTextScore = (q, it) => {
   const s = v => String(v || "").toLowerCase();
-  const Q = s(q), T = `${s(it.question)} ${s(it.text)}`;
-  const keys = Q.split(/\s+/).filter(Boolean);
-  const score = keys.reduce((acc, k) => acc + (T.includes(k) ? 0.1 : 0), 0);
-  return Math.min(score, 0.6); // 상한
+  const Q = s(q);
+  const question = s(it.question);
+  const answer = s(it.answer);
+  
+  // 텍스트 정규화 (기존 코드 유지)
+  const normalize = (text) => {
+    return text
+      .replace(/잇나여|잇나요|있냐|잇냐|잇나|있나\?/g, '있나요')
+      .replace(/뭐에요|뭐야|뭔가요|뭔가여|머에요/g, '무엇인가요')
+      .replace(/어떻게요|어케|어떠케|어떻케/g, '어떻게')
+      .replace(/얼마에요|얼마야|얼마냐|얼마인가요/g, '얼마')
+      .replace(/이용하고싶다|이용하고싶어요|사용하고싶다/g, '이용방법')
+      .replace(/\s+/g, ' ')
+      .trim();
+  };
+  
+  const normalizedQ = normalize(Q);
+  const normalizedQuestion = normalize(question);
+  
+  let score = 0;
+  
+  // 1. 질문 의도 분류
+  const getQuestionIntent = (text) => {
+    if (/이용|사용|신청|시작|운영|개통/.test(text)) return 'usage';
+    if (/자격증|서약서|필요|조건|요건/.test(text)) return 'requirement';
+    if (/비용|요금|수수료|가격|얼마/.test(text)) return 'cost';
+    if (/절차|방법|어떻게|순서/.test(text)) return 'process';
+    return 'general';
+  };
+  
+  const qIntent = getQuestionIntent(normalizedQ);
+  const targetIntent = getQuestionIntent(normalizedQuestion);
+  
+  // 2. 의도가 다르면 점수 크게 감점
+  if (qIntent !== 'general' && targetIntent !== 'general' && qIntent !== targetIntent) {
+    score -= 0.5;
+  }
+  
+  // 3. 핵심 키워드 매칭
+  const qKeywords = normalizedQ.split(/\s+/).filter(w => w.length >= 2);
+  qKeywords.forEach(keyword => {
+    if (normalizedQuestion.includes(keyword)) score += 0.3;
+    if (answer.includes(keyword)) score += 0.2;
+  });
+  
+  // 4. 완전 일치 보너스
+  if (normalizedQuestion.includes(normalizedQ) || normalizedQ.includes(normalizedQuestion)) {
+    score += 0.4;
+  }
+  
+  // 5. 질문 패턴 매칭
+  const questionPatterns = ['있나요', '무엇인가요', '어떻게', '얼마', '이용방법'];
+  const qHasPattern = questionPatterns.some(pattern => normalizedQ.includes(pattern));
+  const targetHasPattern = questionPatterns.some(pattern => normalizedQuestion.includes(pattern));
+  
+  if (qHasPattern && targetHasPattern) score += 0.2;
+  
+  return Math.max(0, Math.min(score, 1.0)); // 음수 방지
 };
-
 // ---- 검색 ----
 function search({ question, qvec }) {
   const scored = EMB.map(it => {
