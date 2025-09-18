@@ -542,3 +542,62 @@
 {"messages":[{"role":"user","content":"상담 전문가는 전화 수신을 차단할 수 있습니까?"},{"role":"assistant","content":"네. 자신의 상태를 ‘부재중’ 또는 특정 시간대 제한으로 설정 가능."}]}
 {"messages":[{"role":"user","content":"홈페이지 제작도 지원합니까?"},{"role":"assistant","content":"직접 제작은 하지 않지만, 전문가 상태(상담중/가능/부재중)를 연동하는 샘플 소스를 무상 제공하며, 반응형으로 구성되어 있습니다."}]}
 {"messages":[{"role":"user","content":"IDC가 무엇인가요?"},{"role":"assistant","content":"IDC(Internet Data Center)는 서버와 통신 장비를 전문 시설에 보관·운영하는 하우징(코로케이션) 센터입니다. 당사는 SK텔링크 하우징룸과 SK브로드밴드 서초 IDC에 시스템을 설치·운영하며, 전원·회선·장비 이중화, 물리·네트워크 보안, 24시간 모니터링을 제공합니다. 고객사 사무실에 별도 서버 설치는 필요 없고, 상담사는 기존 전화기로 상담하시면 됩니다."}]}
+{"messages":[{"role":"user","content":"060 상담 서비스란 무엇인가요?"},{"role":"assistant","content":"060 상담 서비스는 이용자가 상담자와 전화를 통해 실시간으로 대화를 나누는 유료 전화 서비스입니다."}]}
+{"messages":[{"role":"user","content":"060 서비스에는 어떤 유형이 있나요?"},{"role":"assistant","content":"대화형 서비스(법률, 운세, 세무, 노무 등 전문 상담), 녹음형 서비스(경마나 증권 정보 등 사전 녹음된 정보 제공), 기부형 서비스(전화 요금이 특정 단체에 기부되는 구조) 세 가지 유형이 있습니다."}]}
+{"messages":[{"role":"user","content":"대화형 서비스란 무엇인가요?"},{"role":"assistant","content":"법률, 운세, 세무, 노무 등과 같은 전문 상담을 실시간으로 제공하는 형태의 서비스입니다."}]}
+{"messages":[{"role":"user","content":"녹음형 서비스는 어떤 서비스인가요?"},{"role":"assistant","content":"미리 녹음된 정보를 제공하는 방식으로, 경마나 증권 정보 제공에 주로 활용되는 서비스입니다."}]}
+{"messages":[{"role":"user","content":"기부형 서비스는 무엇인가요?"},{"role":"assistant","content":"이용자가 전화를 걸면 그 요금이 특정 단체에 기부되는 구조의 서비스입니다."}]}
+{"messages":[{"role":"user","content":"대화형 서비스의 분류는 어떻게 되나요?"},{"role":"assistant","content":"후불상담(060)과 선불상담(할인상담)으로 분류됩니다."}]}
+{"messages":[{"role":"user","content":"후불상담과 선불상담의 차이점은 무엇인가요?"},{"role":"assistant","content":"후불상담(060)은 통화 후 요금이 청구되는 방식이고, 선불상담(할인상담)은 미리 충전한 금액으로 이용하는 방식입니다. 수수료 구조는 당사에게 문의하세요."}]}
+{"messages":[{"role":"user","content":"대화형 서비스의 특징은 무엇인가요?"},{"role":"assistant","content":"상담사 고유번호 등록(무제한), 실시간 상담, 모바일 페이지로 상담 상태 관리 가능한 것이 특징입니다."}]}
+{"messages":[{"role":"user","content":"녹음정보형 서비스의 특징은 무엇인가요?"},{"role":"assistant","content":"사전 녹음된 정보를 제공하며(경마·경륜·증권 등), 반복 청취형 서비스에 적합합니다. 아웃바운드 비용이 없는 것도 특징입니다."}]}
+{"messages":[{"role":"user","content":"기부형 서비스의 특징은 무엇인가요?"},{"role":"assistant","content":"비영리 단체의 후원 전화에 적합하며, 초기 비용 면제가 가능합니다."}]}
+{"messages":[{"role":"user","content":"초기 프로그램비는 얼마인가요?"},{"role":"assistant","content":"단독형은 550,000원(VAT 포함)이고, 대화형과 할인상담을 동시 구축할 경우 1,100,000원(VAT 포함)입니다."}]}
+{"messages":[{"role":"user","content":"번호 개통 비용은 어떻게 되나요?"},{"role":"assistant","content":"첫 번째 번호는 무료이며, 두 번째부터는 번호당 5,000원의 추가 개통 수수료가 발생합니다."}]}
+{"messages":[{"role":"user","content":"번호 심의비는 얼마인가요?"},{"role":"assistant","content":"번호당 5,500원(VAT 포함)이며, 첫 번째 번호도 포함됩니다."}]}
+{"messages":[{"role":"user","content":"상담사를 추가하면 비용이 더 드나요?"},{"role":"assistant","content":"상담사 수가 늘어나더라도 추가 프로그램 비용은 없습니다. 관리자 페이지에서 0~999명까지 무제한 등록 가능합니다."}]}
+{"messages":[{"role":"user","content":"상담사는 최대 몇 명까지 등록할 수 있나요?"},{"role":"assistant","content":"관리자 페이지에서 0~999명까지 무제한 등록 가능합니다."}]}
+{"messages":[{"role":"user","content":"대화형 후불상담(060) 수수료는 어떻게 되나요?"},{"role":"assistant","content":"통신사 수수료 10%가 적용되며, 당사 수수료는 별도 문의해 주세요. 아웃바운드 비용은 공제됩니다."}]}
+{"messages":[{"role":"user","content":"대화형 선불상담(할인상담) 수수료는 어떻게 되나요?"},{"role":"assistant","content":"통신사 수수료는 없으며, 당사 수수료는 별도 문의해 주세요. 아웃바운드 비용은 공제됩니다."}]}
+{"messages":[{"role":"user","content":"녹음정보형 서비스 수수료는 어떻게 되나요?"},{"role":"assistant","content":"통신사 수수료 10%가 적용되며, 당사 수수료는 별도 문의해 주세요. 아웃바운드 비용은 없습니다."}]}
+{"messages":[{"role":"user","content":"기부형 서비스 수수료는 어떻게 되나요?"},{"role":"assistant","content":"통신사 수수료 10%가 적용되며, 당사 수수료는 별도 문의해 주세요. 아웃바운드 비용은 공제됩니다."}]}
+{"messages":[{"role":"user","content":"통신사 수수료는 모든 서비스에서 동일한가요?"},{"role":"assistant","content":"네, 통신사 수수료 10%는 모든 서비스(대화형 후불, 녹음정보형, 기부형)에서 동일하게 적용되는 불변의 요율입니다. 단, 대화형 선불상담(할인상담)에는 통신사 수수료가 없습니다."}]}
+{"messages":[{"role":"user","content":"선불상담에는 왜 통신사 수수료가 없나요?"},{"role":"assistant","content":"선불상담(할인상담)은 미리 충전한 금액으로 이용하는 방식이기 때문에 통신사 수납대행 수수료가 발생하지 않습니다."}]}
+{"messages":[{"role":"user","content":"아웃바운드 비용이 공제되는 서비스는 무엇인가요?"},{"role":"assistant","content":"대화형 후불상담(060), 대화형 선불상담(할인상담), 기부형 서비스에서 아웃바운드 비용이 공제됩니다. 녹음정보형 서비스에는 아웃바운드 비용이 없습니다."}]}
+{"messages":[{"role":"user","content":"아웃바운드 비용이란 무엇인가요?"},{"role":"assistant","content":"아웃바운드 비용은 060 시스템에서 상담사에게 전화를 연결할 때 발생하는 발신 요금을 말합니다. 대화형 서비스와 기부형 서비스에서 발생하며, 정산 시 공제됩니다."}]}
+{"messages":[{"role":"user","content":"정산 수수료 구조를 정리해서 알려주세요"},{"role":"assistant","content":"각 서비스별 정산 수수료는 다음과 같습니다:\n- 대화형 후불상담(060): 통신사 10% + 당사 수수료(문의) + 아웃바운드 비용 공제\n- 대화형 선불상담: 당사 수수료(문의) + 아웃바운드 비용 공제\n- 녹음정보형: 통신사 10% + 당사 수수료(문의)\n- 기부형: 통신사 10% + 당사 수수료(문의) + 아웃바운드 비용 공제"}]}
+{"messages":[{"role":"user","content":"060상담(후불상담)과 할인상담(선불상담)을 같이 구축하면 얼마인가요?"},{"role":"assistant","content":"대화형과 할인상담을 동시 구축할 경우 초기 프로그램비는 1,100,000원(VAT 포함)입니다."}]}
+{"messages":[{"role":"user","content":"정식 개통 일정은 어떻게 되나요?"},{"role":"assistant","content":"매월 14일 KAIT 제출 후 다음 달 1일에 개통됩니다."}]}
+{"messages":[{"role":"user","content":"보유 번호 활용이란 무엇인가요?"},{"role":"assistant","content":"당사 보유 번호를 배정해 신속하게 서비스를 개시할 수 있는 방법입니다."}]}
+{"messages":[{"role":"user","content":"보유 번호 이용 시 자격증이 필요한가요?"},{"role":"assistant","content":"보유 번호 이용 시에는 자격증이 필요 없고 별도 절차도 없기 때문에 바로 이용이 가능합니다."}]}
+{"messages":[{"role":"user","content":"기존 번호(타사)를 그대로 사용할 수 있나요?"},{"role":"assistant","content":"동일 통신사/본인 명의인 경우 라우팅 변경으로 가능하지만, 타 통신사 번호는 신규 개통이 필요합니다."}]}
+{"messages":[{"role":"user","content":"한 번호에 여러 분야 서비스를 할 수 있나요?"},{"role":"assistant","content":"불가능합니다. 한 번호(서비스코드) = 한 개의 KAIT 분류 원칙으로, 하나의 번호에 서로 다른 분야(예: 운세+취업) 혼용은 불가합니다."}]}
+{"messages":[{"role":"user","content":"전문가별로 요금을 다르게 설정할 수 있나요?"},{"role":"assistant","content":"요금/비과금초는 번호 단위로 설정되며, 내선/전문가별로 다르게 설정할 수 없습니다. 전문가별 과금 차등이 필요하면 번호를 추가하거나 선불형(할인상담) 병행을 권장합니다."}]}
+{"messages":[{"role":"user","content":"착신번호는 언제든 변경 가능한가요?"},{"role":"assistant","content":"네, 착신번호는 관리자 페이지에서 즉시 변경 가능합니다. 다만 통화 중 호전환이나 삼자통화(컨퍼런스콜)는 미지원됩니다."}]}
+{"messages":[{"role":"user","content":"060 회선에서 삼자통화가 가능한가요?"},{"role":"assistant","content":"060 회선은 삼자통화(3자 통화), 시스템 차원의 자동 호전환/내선 전환을 지원하지 않습니다."}]}
+{"messages":[{"role":"user","content":"사무실 전화기의 호전환 기능을 사용할 수 있나요?"},{"role":"assistant","content":"사무실 전화기의 자체 보류·호전환 기능 사용은 기기 범위 내에서만 가능합니다."}]}
+{"messages":[{"role":"user","content":"다국어 안내멘트 제공이 가능한가요?"},{"role":"assistant","content":"한국어 안내멘트는 필수이며, 필요 시 다국어(예: 베트남어/캄보디아어) 멘트 파일을 고객사가 제공하면 규정 범위 내에서 삽입 가능합니다."}]}
+{"messages":[{"role":"user","content":"서비스 번호 신청은 누가 하나요?"},{"role":"assistant","content":"서비스 번호는 060KC가 신청·개통을 대행합니다."}]}
+{"messages":[{"role":"user","content":"계약서는 어떻게 제출하나요?"},{"role":"assistant","content":"계약서 원본은 등기우편으로 교환합니다. 그 외 사업자등록증·자격증·서약서 등은 스캔/팩스로 접수 가능합니다."}]}
+{"messages":[{"role":"user","content":"KAIT 제출 마감일은 언제인가요?"},{"role":"assistant","content":"매월 14일이 KAIT 제출 마감일이며, 제출 후 다음 달 1일에 개통됩니다."}]}
+{"messages":[{"role":"user","content":"번호 분류 원칙은 무엇인가요?"},{"role":"assistant","content":"한 번호(서비스코드) = 한 개의 KAIT 분류 원칙입니다. 하나의 번호에 서로 다른 분야를 혼용할 수 없습니다."}]}
+{"messages":[{"role":"user","content":"서비스 신청에 필요한 기본 서류는 무엇인가요?"},{"role":"assistant","content":"사업자 등록증, 자격증, 서약서가 기본적으로 필요합니다. 관리자 페이지도 함께 제공됩니다."}]}
+{"messages":[{"role":"user","content":"어떤 사업자 등록증이 필요한가요?"},{"role":"assistant","content":"일반사업자·법인을 선호하지만, 간이·면세 사업자도 가능합니다. 단, 간이·면세 사업자는 부가세 10% 공제가 추가 적용됩니다."}]}
+{"messages":[{"role":"user","content":"자격증 제출이 필요한 분야는 무엇인가요?"},{"role":"assistant","content":"전문 서비스(법률·세무·노무 등)는 자격증 제출이 필수입니다. 운세·심리 등은 민간협회 자격증도 인정됩니다."}]}
+{"messages":[{"role":"user","content":"서약서는 몇 부나 필요한가요?"},{"role":"assistant","content":"최소 3부가 필요합니다. 다만 기존 번호 사용 시에는 심의가 면제될 수 있습니다."}]}
+{"messages":[{"role":"user","content":"관리자 페이지에서 무엇을 할 수 있나요?"},{"role":"assistant","content":"전문가 고유번호 등록(3자리), 상담 내역 및 통계 확인이 가능합니다."}]}
+{"messages":[{"role":"user","content":"한 번호에 여러 분야를 등록할 수 있나요?"},{"role":"assistant","content":"불가능합니다. 한 번호-한 분류 원칙으로, 하나의 060 번호에는 하나의 정보유형(법률, 운세, 심리 등)만 등록 가능합니다."}]}
+{"messages":[{"role":"user","content":"대화형 서비스 자격증은 몇 명분이 필요한가요?"},{"role":"assistant","content":"원칙적으로 해당 분야 자격 보유자 3인의 자격증과 서약서 제출이 필요합니다."}]}
+{"messages":[{"role":"user","content":"법률·노무 분야 자격증 기준은 어떻게 되나요?"},{"role":"assistant","content":"국가자격증 3부 제출이 원칙입니다. 변호사 사무원증 등 보조증서는 대체 인정되지 않는 것이 일반적입니다."}]}
+{"messages":[{"role":"user","content":"운세 분야는 어떤 자격증이 필요한가요?"},{"role":"assistant","content":"민간 협회 자격/회원증 등으로 대체 가능한 사례가 다수 있습니다."}]}
+{"messages":[{"role":"user","content":"일반 고민상담은 어떤 서류가 필요한가요?"},{"role":"assistant","content":"비전문 분야인 일반 고민상담은 상담사 서약서와 신분증으로 신청 가능합니다(규정 범위 내)."}]}
+{"messages":[{"role":"user","content":"법률 상담 요금은 어떻게 설정하나요?"},{"role":"assistant","content":"법률/노무 분야는 30초당 2,500원이 권장 요금 범위입니다."}]}
+{"messages":[{"role":"user","content":"운세 상담 요금은 얼마로 설정하면 되나요?"},{"role":"assistant","content":"운세 분야는 30초당 1,200~1,500원이 권장 요금 범위입니다."}]}
+{"messages":[{"role":"user","content":"심리 상담 요금은 어떻게 되나요?"},{"role":"assistant","content":"심리/고민 상담은 30초당 500~1,500원이 권장 요금 범위입니다."}]}
+{"messages":[{"role":"user","content":"녹음정보형(경마,경륜) 서비스 요금은 어떻게 설정하나요?"},{"role":"assistant","content":"건당 10,000~30,000원(문자 안내 포함) 또는 ARS 고정요금형 건당 4,900원 등으로 설정할 수 있습니다."}]}
+{"messages":[{"role":"user","content":"기부형 서비스 요금은 어떻게 정하나요?"},{"role":"assistant","content":"공익 목적 내에서 사안별로 자율 설정이 가능하며, KAIT 심의 범위 내에서 결정됩니다."}]}
+{"messages":[{"role":"user","content":"아웃바운드 요금(발신요금)은 어떻게 되나요?"},{"role":"assistant","content":"060 상담(후불)은 일반전화 3분당 39원, 인터넷전화 3분당 47원, 휴대폰 10초당 14.5원입니다. 할인상담(선불)은 시내 3분당 39원, 시외/휴대폰 10초당 14.5원, 인터넷전화 3분당 39원입니다. 당사의 아웃바운드 비용은 업계 최저가에 속하며, 이는 매우 큰 장점입니다."}]}
+{"messages":[{"role":"user","content":"전문가별로 다른 요금을 설정할 수 있나요?"},{"role":"assistant","content":"번호마다 정보이용료를 설정하며, 전문가별로 개별 요금 설정은 불가능합니다. 원칙적으로 번호 단일 요금제입니다."}]}
+{"messages":[{"role":"user","content":"상담사별 요금 차등을 두려면 어떻게 해야 하나요?"},{"role":"assistant","content":"상담사별 요금 차등이 필요하면 번호를 추가해서 운영해야 합니다. 번호당 월 1만원이 추가됩니다."}]}
+{"messages":[{"role":"user","content":"시간대별로 요금을 다르게 설정할 수 있나요?"},{"role":"assistant","content":"시간/요일 등 가변 요금은 미지원됩니다. 요금 변경은 매월 14일 신청하여 다음 달 1일부터 적용됩니다."}]}
+{"messages":[{"role":"user","content":"비과금초란 무엇인가요?"},{"role":"assistant","content":"KAIT 신청 시 설정 가능한 무료 시간으로, 30초나 60초 혹은 90초 등으로 설정할 수 있습니다."}]}
