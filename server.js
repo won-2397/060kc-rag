@@ -1,5 +1,6 @@
 // server.js (RAG · ESM 최종본) - 포트 3000 수정
 // 기능: embeddings.json 로드(q/a/e 또는 question/answer/vector 자동 지원) → POST /ask 응답
+// 추가: 키워드 기반 안내 시스템
 import express from "express";
 import cors from "cors";
 import fs from "fs/promises";
@@ -36,6 +37,65 @@ app.use(express.json({ limit: "2mb" }));
 
 let EMB = [];
 let EMB_DIM = 0;
+
+// ---- 키워드 기반 안내 시스템 ----
+const KEYWORD_GUIDE_MAP = {
+  "060": {
+    keywords: ["060", "060서비스", "프리미엄", "통화"],
+    response: "네. 060 서비스의 어떤 점이 궁금하신가요? 보다 정확히 질문해주시면 자세히 답변해드리겠습니다."
+  },
+  "경마": {
+    keywords: ["경마", "경마장", "경주", "베팅", "마권"],
+    response: "네. 경마의 어떤 점이 궁금하신가요? 보다 정확히 질문해주시면 자세히 답변해드리겠습니다."
+  },
+  "운세": {
+    keywords: ["운세", "점", "사주", "타로", "신점"],
+    response: "네. 운세의 어떤 점이 궁금하신가요? 보다 정확히 질문해주시면 자세히 답변해드리겠습니다."
+  },
+  "게임": {
+    keywords: ["게임", "온라인게임", "모바일게임", "카지노"],
+    response: "네. 게임의 어떤 점이 궁금하신가요? 보다 정확히 질문해주시면 자세히 답변해드리겠습니다."
+  },
+  "채팅": {
+    keywords: ["채팅", "대화", "톡", "메신저"],
+    response: "네. 채팅 서비스의 어떤 점이 궁금하신가요? 보다 정확히 질문해주시면 자세히 답변해드리겠습니다."
+  },
+  "결제": {
+    keywords: ["결제", "요금", "비용", "수수료", "가격", "얼마"],
+    response: "네. 결제 관련해서 어떤 점이 궁금하신가요? 보다 정확히 질문해주시면 자세히 답변해드리겠습니다."
+  },
+  "가입": {
+    keywords: ["가입", "회원가입", "등록", "신청"],
+    response: "네. 가입 절차의 어떤 점이 궁금하신가요? 보다 정확히 질문해주시면 자세히 답변해드리겠습니다."
+  },
+  "이용": {
+    keywords: ["이용", "사용", "이용방법", "사용법"],
+    response: "네. 이용 방법의 어떤 점이 궁금하신가요? 보다 정확히 질문해주시면 자세히 답변해드리겠습니다."
+  }
+};
+
+// 키워드 가이드 체크 함수
+function checkKeywordGuide(question) {
+  const normalizedQ = question.toLowerCase().trim();
+  const words = normalizedQ.split(/\s+/);
+  
+  // 단어가 1-2개이고 짧은 질문인 경우에만 키워드 가이드 적용
+  if (words.length <= 2 && question.length <= 10) {
+    for (const [category, config] of Object.entries(KEYWORD_GUIDE_MAP)) {
+      for (const keyword of config.keywords) {
+        if (normalizedQ.includes(keyword.toLowerCase())) {
+          return {
+            isKeywordGuide: true,
+            category,
+            response: config.response
+          };
+        }
+      }
+    }
+  }
+  
+  return { isKeywordGuide: false };
+}
 
 // ---- 임베딩 로드(+스키마 정규화) ----
 async function loadEmbeddings() {
@@ -137,8 +197,23 @@ const cheapTextScore = (q, it) => {
   
   return Math.max(0, Math.min(score, 1.0)); // 음수 방지
 };
+
 // ---- 검색 ----
 function search({ question, qvec }) {
+  // 먼저 키워드 가이드 체크
+  const keywordGuide = checkKeywordGuide(question);
+  if (keywordGuide.isKeywordGuide) {
+    return {
+      answer: keywordGuide.response,
+      hits: [],
+      bestScore: 1.0,
+      found: true,
+      isKeywordGuide: true,
+      category: keywordGuide.category
+    };
+  }
+
+  // 기존 검색 로직
   const scored = EMB.map(it => {
     const sim = (Array.isArray(qvec) && Array.isArray(it.vector) && it.vector.length === EMB_DIM)
       ? cosineSimilarity(qvec, it.vector)
@@ -152,7 +227,7 @@ function search({ question, qvec }) {
   const answer = found ? (top[0].answer || top[0].text || "자료에 없음") : "자료에 없음";
 
   const hits = top.map(({ id, question, answer, text, score }) => ({ id, question, answer, text, score }));
-  return { answer, hits, bestScore, found };
+  return { answer, hits, bestScore, found, isKeywordGuide: false };
 }
 
 // ---- 라우트 ----
@@ -166,7 +241,7 @@ app.post("/ask", async (req, res) => {
     if (!question) return res.status(400).json({ error: "question required" });
 
     const result = search({ question, qvec });
-    return res.json(result); // { answer, hits, bestScore, found }
+    return res.json(result); // { answer, hits, bestScore, found, isKeywordGuide?, category? }
   } catch (e) {
     console.error("[/ask] error:", e.message || e);
     return res.status(500).json({ error: "RAG error" });
@@ -181,8 +256,16 @@ app.post("/ask/debug", async (req, res) => {
     const N = Math.max(1, Math.min(20, Number(req.body?.top || 5)));
     if (!question) return res.status(400).json({ error: "question required" });
 
-    const { hits, bestScore, found } = search({ question, qvec });
-    return res.json({ top: hits.slice(0, N), bestScore, found, count: EMB.length, dim: EMB_DIM });
+    const { hits, bestScore, found, isKeywordGuide, category } = search({ question, qvec });
+    return res.json({ 
+      top: hits.slice(0, N), 
+      bestScore, 
+      found, 
+      count: EMB.length, 
+      dim: EMB_DIM,
+      isKeywordGuide,
+      category
+    });
   } catch (e) {
     console.error("[/ask/debug] error:", e.message || e);
     return res.status(500).json({ error: "RAG error" });
