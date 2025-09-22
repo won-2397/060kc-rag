@@ -1,4 +1,4 @@
-// server.js (RAG · ESM 최종본) - 안전한 롤백 버전
+// server.js (RAG · ESM 최종본) - 포트 3000 수정
 // 기능: embeddings.json 로드(q/a/e 또는 question/answer/vector 자동 지원) → POST /ask 응답
 import express from "express";
 import cors from "cors";
@@ -10,7 +10,7 @@ import { fileURLToPath } from "url";
 dotenv.config();
 
 const app = express();
-const PORT = Number(process.env.PORT) || 3000;
+const PORT = Number(process.env.PORT) || 3000; // ✅ 3000으로 변경
 const RAG_THRESHOLD = Number(process.env.RAG_THRESHOLD || 0.25);
 
 // 파일 경로 설정: EMB_PATH 없으면 레포 루트의 embeddings.json 사용
@@ -36,26 +36,6 @@ app.use(express.json({ limit: "2mb" }));
 
 let EMB = [];
 let EMB_DIM = 0;
-
-// 키워드 가이드 체크 함수 (간단한 버전)
-function checkKeywordGuide(question) {
-  const normalizedQ = question.trim();
-  const words = normalizedQ.split(/\s+/);
-  
-  // 단어가 1-3개이고 질문 형태가 아닌 경우
-  if (words.length <= 3 && !normalizedQ.includes('?') && !/나요|까요|어떤|얼마|어떻게|언제|어디|왜|뭐/.test(normalizedQ)) {
-    const keyword = normalizedQ;
-    const response = `네. ${keyword}에 대해서 어떤것이 궁금하신가요? 저는 챗봇이기 때문에 구체적인 문장을 작성해주셔야 올바른 대답을 해드릴 수 있습니다. 예) 060 케이씨는 어떤 회사인가요?`;
-    
-    return {
-      isKeywordGuide: true,
-      keyword: keyword,
-      response: response
-    };
-  }
-  
-  return { isKeywordGuide: false };
-}
 
 // ---- 임베딩 로드(+스키마 정규화) ----
 async function loadEmbeddings() {
@@ -102,7 +82,7 @@ const cheapTextScore = (q, it) => {
   const question = s(it.question);
   const answer = s(it.answer);
   
-  // 텍스트 정규화
+  // 텍스트 정규화 (기존 코드 유지)
   const normalize = (text) => {
     return text
       .replace(/잇나여|잇나요|있냐|잇냐|잇나|있나\?/g, '있나요')
@@ -119,37 +99,46 @@ const cheapTextScore = (q, it) => {
   
   let score = 0;
   
-  // 핵심 키워드 매칭
+  // 1. 질문 의도 분류
+  const getQuestionIntent = (text) => {
+    if (/이용|사용|신청|시작|운영|개통/.test(text)) return 'usage';
+    if (/자격증|서약서|필요|조건|요건/.test(text)) return 'requirement';
+    if (/비용|요금|수수료|가격|얼마/.test(text)) return 'cost';
+    if (/절차|방법|어떻게|순서/.test(text)) return 'process';
+    return 'general';
+  };
+  
+  const qIntent = getQuestionIntent(normalizedQ);
+  const targetIntent = getQuestionIntent(normalizedQuestion);
+  
+  // 2. 의도가 다르면 점수 크게 감점
+  if (qIntent !== 'general' && targetIntent !== 'general' && qIntent !== targetIntent) {
+    score -= 0.5;
+  }
+  
+  // 3. 핵심 키워드 매칭
   const qKeywords = normalizedQ.split(/\s+/).filter(w => w.length >= 2);
   qKeywords.forEach(keyword => {
     if (normalizedQuestion.includes(keyword)) score += 0.3;
     if (answer.includes(keyword)) score += 0.2;
   });
   
-  // 완전 일치 보너스
+  // 4. 완전 일치 보너스
   if (normalizedQuestion.includes(normalizedQ) || normalizedQ.includes(normalizedQuestion)) {
     score += 0.4;
   }
   
-  return Math.max(0, Math.min(score, 1.0));
+  // 5. 질문 패턴 매칭
+  const questionPatterns = ['있나요', '무엇인가요', '어떻게', '얼마', '이용방법'];
+  const qHasPattern = questionPatterns.some(pattern => normalizedQ.includes(pattern));
+  const targetHasPattern = questionPatterns.some(pattern => normalizedQuestion.includes(pattern));
+  
+  if (qHasPattern && targetHasPattern) score += 0.2;
+  
+  return Math.max(0, Math.min(score, 1.0)); // 음수 방지
 };
-
 // ---- 검색 ----
 function search({ question, qvec }) {
-  // 먼저 키워드 가이드 체크
-  const keywordGuide = checkKeywordGuide(question);
-  if (keywordGuide.isKeywordGuide) {
-    return {
-      answer: keywordGuide.response,
-      hits: [],
-      bestScore: 1.0,
-      found: true,
-      isKeywordGuide: true,
-      keyword: keywordGuide.keyword
-    };
-  }
-
-  // 기존 검색 로직
   const scored = EMB.map(it => {
     const sim = (Array.isArray(qvec) && Array.isArray(it.vector) && it.vector.length === EMB_DIM)
       ? cosineSimilarity(qvec, it.vector)
@@ -163,7 +152,7 @@ function search({ question, qvec }) {
   const answer = found ? (top[0].answer || top[0].text || "자료에 없음") : "자료에 없음";
 
   const hits = top.map(({ id, question, answer, text, score }) => ({ id, question, answer, text, score }));
-  return { answer, hits, bestScore, found, isKeywordGuide: false };
+  return { answer, hits, bestScore, found };
 }
 
 // ---- 라우트 ----
@@ -177,7 +166,7 @@ app.post("/ask", async (req, res) => {
     if (!question) return res.status(400).json({ error: "question required" });
 
     const result = search({ question, qvec });
-    return res.json(result);
+    return res.json(result); // { answer, hits, bestScore, found }
   } catch (e) {
     console.error("[/ask] error:", e.message || e);
     return res.status(500).json({ error: "RAG error" });
@@ -192,16 +181,8 @@ app.post("/ask/debug", async (req, res) => {
     const N = Math.max(1, Math.min(20, Number(req.body?.top || 5)));
     if (!question) return res.status(400).json({ error: "question required" });
 
-    const { hits, bestScore, found, isKeywordGuide, keyword } = search({ question, qvec });
-    return res.json({ 
-      top: hits.slice(0, N), 
-      bestScore, 
-      found, 
-      count: EMB.length, 
-      dim: EMB_DIM,
-      isKeywordGuide,
-      keyword
-    });
+    const { hits, bestScore, found } = search({ question, qvec });
+    return res.json({ top: hits.slice(0, N), bestScore, found, count: EMB.length, dim: EMB_DIM });
   } catch (e) {
     console.error("[/ask/debug] error:", e.message || e);
     return res.status(500).json({ error: "RAG error" });
