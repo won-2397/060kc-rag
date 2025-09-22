@@ -103,13 +103,25 @@ function preprocessText(text) {
 function checkKeywordGuide(question) {
   const normalizedQ = question.trim();
   
-  // 질문 형태 감지 (의문사, 조사, 동사 등)
-  const isQuestion = /(\?|요\?|까요|나요|인가요|뭐|어떤|어떻게|얼마|언제|어디|왜|누구|무엇|몇|어느)/.test(normalizedQ);
+  // 질문 형태 감지 - 더 엄격한 패턴
+  const questionMarkers = [
+    /\?$/, // 물음표로 끝남
+    /어떤/, /어떻게/, /얼마/, /언제/, /어디/, /왜/, /누구/, /무엇/, /몇/, /어느/,
+    /뭐야/, /뭐에요/, /뭔가요/, /뭐예요/,
+    /인가요/, /있나요/, /하나요/, /나요$/, /까요$/,
+    /는$/, /을$/, /를$/, /이$/, /가$/  // 조사로 끝남
+  ];
+  
+  const isQuestion = questionMarkers.some(pattern => pattern.test(normalizedQ));
+  
+  console.log(`[DEBUG] Question: "${normalizedQ}", isQuestion: ${isQuestion}`);
   
   // 질문이 아닌 단순 키워드/명사구인 경우
   if (!isQuestion) {
     const keyword = normalizedQ;
     const response = `네. ${keyword}에 대해서 어떤것이 궁금하신가요? 저는 챗봇이기 때문에 구체적인 문장을 작성해주셔야 올바른 대답을 해드릴 수 있습니다. 예) 060 케이씨는 어떤 회사인가요?`;
+    
+    console.log(`[DEBUG] Keyword guide triggered for: "${keyword}"`);
     
     return {
       isKeywordGuide: true,
