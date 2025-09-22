@@ -99,15 +99,17 @@ function preprocessText(text) {
   };
 }
 
-// 키워드 가이드 체크 함수 (동적)
+// 키워드 가이드 체크 함수 (질문/문장 구분)
 function checkKeywordGuide(question) {
   const normalizedQ = question.trim();
-  const words = normalizedQ.split(/\s+/);
   
-  // 단어가 1-2개이고 짧은 질문인 경우에만 키워드 가이드 적용
-  if (words.length <= 2 && question.length <= 10) {
+  // 질문 형태 감지 (의문사, 조사, 동사 등)
+  const isQuestion = /(\?|요\?|까요|나요|인가요|뭐|어떤|어떻게|얼마|언제|어디|왜|누구|무엇|몇|어느)/.test(normalizedQ);
+  
+  // 질문이 아닌 단순 키워드/명사구인 경우
+  if (!isQuestion) {
     const keyword = normalizedQ;
-    const response = `네. ${keyword}의 어떤 점이 궁금하신가요? 보다 정확히 질문해주시면 자세히 답변해드리겠습니다.`;
+    const response = `네. ${keyword}에 대해서 어떤것이 궁금하신가요? 저는 챗봇이기 때문에 구체적인 문장을 작성해주셔야 올바른 대답을 해드릴 수 있습니다. 예) 060 케이씨는 어떤 회사인가요?`;
     
     return {
       isKeywordGuide: true,
