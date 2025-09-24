@@ -37,25 +37,6 @@ app.use(express.json({ limit: "2mb" }));
 let EMB = [];
 let EMB_DIM = 0;
 
-// 키워드 가이드 체크 함수 (동적 응답 생성)
-function checkKeywordGuide(question) {
-  const normalizedQ = question.trim();
-  const words = normalizedQ.split(/\s+/);
-  
-  // 단어가 1-3개이고 질문 형태가 아닌 경우
-  if (words.length <= 3 && !normalizedQ.includes('?') && !/나요|까요|어떤|얼마|어떻게|언제|어디|왜|뭐/.test(normalizedQ)) {
-    const keyword = normalizedQ;
-    const response = `${keyword}에 대해 어떤것이 궁금하신가요? 저는 chatbot이기 때문에 구체적으로 내용을 말씀해주셔야 정확한 답변을 해드릴 수 있습니다. 예) 060 케이씨는 어떤 회사인가요?`;
-    
-    return {
-      isKeywordGuide: true,
-      keyword: keyword,
-      response: response
-    };
-  }
-  
-  return { isKeywordGuide: false };
-}
 
 // 키워드 가이드 체크 함수 (간단한 버전)
 function checkKeywordGuide(question) {
